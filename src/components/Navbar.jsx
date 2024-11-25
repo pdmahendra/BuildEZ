@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between max-w-6xl mx-auto py-4 px-4">
           {/* Logo */}
           <div className="text-2xl font-bold text-orange-500">
-            <img src={"/logo.png"} alt="Logo" className="w-12 h-12" />
+            <img src={"/logo.png"} alt="Logo" className="" />
           </div>
 
           {/* Hamburger Icon (visible on mobile) */}

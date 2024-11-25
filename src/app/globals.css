@@ -197,29 +197,18 @@ body {
 }
 
 .animie-section {
-  /* animation: appear linear; */
-  /* width: 200px;
-  height: 200px; */
-  animation: changeBackground 3s infinite;
+ animation: appear linear;
+ animation-timeline: view();
+ animation-range: entry 0% cover 40%;
 }
 
 @keyframes appear {
-  /* from {
+  from {
     opacity: 0;
     transform: scale(0.5); 
   }
   to {
     opacity: 1;
     transform: scale(1);
-  } */
-
-  0% {
-    background-color: red;
-  }
-  50% {
-    background-color: yellow;
-  }
-  100% {
-    background-color: green;
   }
 }

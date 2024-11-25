@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 
-const img1 = ("https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-const img2 = ("https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-const img3 = ("https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-const img4 = ("https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-const img5 = ("https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
-const img6 = ("https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+const img1 = ("/image.png");
+const img2 = ("/image1.png");
+const img3 = ("/image2.png");
+const img4 = ("/image3.png");
+const img5 = ("/image4.png");
+const img6 = ("/image5.png");
 
 const images = [img1, img2, img3, img4, img5, img6];
 const speed = 3500;
