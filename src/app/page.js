@@ -1,17 +1,17 @@
 import React from "react";
 import { ChevronRight } from "lucide-react";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import ImageSlider from "../components/ImageSlider";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 
 export default function HomePage() {
   return (
     <div className="font-sans text-gray-900">
       {/* Header */}
-      <Navbar />
+      {/* <Navbar /> */}
       {/* Hero Section */}
       <section
-        className="relative w-full h-screen bg-cover bg-center text-white mt-16"
+        className="relative w-full h-screen bg-cover bg-center text-white"
         style={{ backgroundImage: "url(" + "/banner.png" + ")" }}
       >
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -233,7 +233,7 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
