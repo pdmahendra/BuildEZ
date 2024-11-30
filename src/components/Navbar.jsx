@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -23,27 +25,36 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-8">
-            <a href="#home" className="text-gray-700 hover:text-orange-500">
+            <Link href="/" className="text-gray-700 hover:text-orange-500">
               Home
-            </a>
-            <a href="#products" className="text-gray-700 hover:text-orange-500">
+            </Link>
+            <Link
+              href="/products"
+              className="text-gray-700 hover:text-orange-500"
+            >
               Products
-            </a>
-            <a href="#services" className="text-gray-700 hover:text-orange-500">
+            </Link>
+            <Link
+              href="/services"
+              className="text-gray-700 hover:text-orange-500"
+            >
               Services
-            </a>
-            <a href="#contact" className="text-gray-700 hover:text-orange-500">
+            </Link>
+            <Link
+              href="/contact"
+              className="text-gray-700 hover:text-orange-500"
+            >
               Contact
-            </a>
-            <a href="#faqs" className="text-gray-700 hover:text-orange-500">
+            </Link>
+            <Link href="/faqs" className="text-gray-700 hover:text-orange-500">
               FAQs
-            </a>
+            </Link>
           </nav>
 
           <div className="hidden lg:block">
-            <a href="#" className="text-gray-700 hover:text-orange-500 ">
+            <Link href="#" className="text-gray-700 hover:text-orange-500 ">
               ☰
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -51,41 +62,41 @@ const Navbar = () => {
         {menuOpen && (
           <nav className="md:hidden bg-white shadow-lg">
             <div className="flex flex-col items-center gap-4 py-4">
-              <a
-                href="#home"
+              <Link
+                href="/"
                 className="text-gray-700 hover:text-orange-500"
                 onClick={() => setMenuOpen(false)}
               >
                 Home
-              </a>
-              <a
-                href="#products"
+              </Link>
+              <Link
+                href="/products"
                 className="text-gray-700 hover:text-orange-500"
                 onClick={() => setMenuOpen(false)}
               >
                 Products
-              </a>
-              <a
-                href="#services"
+              </Link>
+              <Link
+                href="/services"
                 className="text-gray-700 hover:text-orange-500"
                 onClick={() => setMenuOpen(false)}
               >
                 Services
-              </a>
-              <a
-                href="#contact"
+              </Link>
+              <Link
+                href="/contact"
                 className="text-gray-700 hover:text-orange-500"
                 onClick={() => setMenuOpen(false)}
               >
                 Contact
-              </a>
-              <a
-                href="#faqs"
+              </Link>
+              <Link
+                href="/faqs"
                 className="text-gray-700 hover:text-orange-500"
                 onClick={() => setMenuOpen(false)}
               >
                 FAQs
-              </a>
+              </Link>
             </div>
           </nav>
         )}
