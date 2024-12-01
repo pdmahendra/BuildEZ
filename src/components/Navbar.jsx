@@ -3,16 +3,24 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
+import { Alata } from "next/font/google";
+
+const alata = Alata({
+  subsets: ["latin"],
+  weight: "400",
+});
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div>
-      <header className="bg-white shadow-md fixed w-full top-0 z-50">
+      <header
+        className={`${alata.className} bg-white shadow-md fixed w-full top-0 z-50`}
+      >
         <div className="flex items-center justify-between max-w-6xl mx-auto py-4 px-4">
           {/* Logo */}
           <div className="text-2xl font-bold text-orange-500">
-            <img src={"/logo.png"} alt="Logo" className="" />
+            <img src={"/logo.png"} alt="Logo" className="w-[99px] h-[56px]" />
           </div>
 
           {/* Hamburger Icon (visible on mobile) */}
