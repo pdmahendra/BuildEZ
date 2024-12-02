@@ -8,6 +8,57 @@ const alata = Alata({
   weight: "400",
 });
 
+const products = [
+  {
+    id: "1",
+    image: "/productImg4.jpg",
+    name: "IRON FRAME",
+    price: "$4,990",
+  },
+  {
+    id: "2",
+    image: "/productImg4.jpg",
+    name: "IRON FRAME",
+    price: "$4,990",
+  },
+  {
+    id: "3",
+    image: "/productImg4.jpg",
+    name: "IRON FRAME",
+    price: "$4,990",
+  },
+  {
+    id: "4",
+    image: "/productImg4.jpg",
+    name: "IRON FRAME",
+    price: "$4,990",
+  },
+  {
+    id: "5",
+    image: "/productImg4.jpg",
+    name: "IRON FRAME",
+    price: "$4,990",
+  },
+  {
+    id: "6",
+    image: "/productImg4.jpg",
+    name: "IRON FRAME",
+    price: "$4,990",
+  },
+  {
+    id: "7",
+    image: "/productImg4.jpg",
+    name: "IRON FRAME",
+    price: "$4,990",
+  },
+  {
+    id: "8",
+    image: "/productImg4.jpg",
+    name: "IRON FRAME",
+    price: "$4,990",
+  },
+];
+
 const Page = () => {
   return (
     <div className={`${alata.className}`}>
@@ -71,14 +122,16 @@ const Page = () => {
           Enjoy our feature products
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 place-items-center">
-          <ProductCard alata={alata} />
-          <ProductCard alata={alata} />
-          <ProductCard alata={alata} />
-          <ProductCard alata={alata} />
-          <ProductCard alata={alata} />
-          <ProductCard alata={alata} />
-          <ProductCard alata={alata} />
-          <ProductCard alata={alata} />
+          {products.map((p) => (
+            <ProductCard
+              alata={alata}
+              key={p.id}
+              id={p.id}
+              image={p.image}
+              name={p.name}
+              price={p.price}
+            />
+          ))}
         </div>
       </div>
       <div className="max-w-7xl mx-auto p-4 mt-16">
