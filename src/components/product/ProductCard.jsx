@@ -2,7 +2,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const ProductCard = ({ alata, image, name, price, id }) => {
+const ProductCard = ({ alata, image, name, id }) => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -16,10 +16,9 @@ const ProductCard = ({ alata, image, name, price, id }) => {
         className="w-full h-[355px] object-cover"
       />
       <div
-        className={`${alata.className} flex justify-between text-[#323334] text-xs tracking-widest pt-2`}
+        className={`${alata.className} text-center text-[#323334] text-xs tracking-widest pt-2`}
       >
         <p>{name}</p>
-        <p>{price}</p>
       </div>
     </div>
   );
