@@ -9,7 +9,7 @@ const alata = Alata({
 const ContactForm = () => {
   return (
     <div className={`${alata.className} space-y-12`}>
-      <div className="md:grid md:grid-cols-2 text-[#00000080] text-2xl md:gap-12 space-y-6">
+      <div className="md:grid md:grid-cols-2 text-[#00000080] text-2xl md:gap-12 max-md:space-y-6">
         <input
           type="text"
           placeholder="Your Full Name"
