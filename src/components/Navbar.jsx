@@ -60,6 +60,12 @@ const Navbar = () => {
             >
               Contact
             </Link>
+            <Link
+              href="/company-profile"
+              className="text-gray-700 hover:text-orange-500"
+            >
+              Company Profile
+            </Link>
             <Link href="/faqs" className="text-gray-700 hover:text-orange-500">
               FAQs
             </Link>
@@ -103,6 +109,12 @@ const Navbar = () => {
                 onClick={() => setMenuOpen(false)}
               >
                 Contact
+              </Link>
+              <Link
+                href="/company-profile"
+                className="text-gray-700 hover:text-orange-500"
+              >
+                Company Profile
               </Link>
               <Link
                 href="/faqs"
