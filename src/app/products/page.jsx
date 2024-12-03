@@ -13,49 +13,59 @@ const products = [
     id: "1",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Clubs",
   },
   {
     id: "2",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Clothing & Rainwear",
   },
   {
     id: "3",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Balls",
   },
   {
     id: "4",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Clubs",
   },
   {
     id: "5",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Clothing & Rainwear",
   },
   {
     id: "6",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Balls",
   },
   {
     id: "7",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Clubs",
+
   },
   {
     id: "8",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Clothing & Rainwear",
+
   },
 ];
 
@@ -93,10 +103,10 @@ const Page = () => {
           <img
             src="/productImg2.jpg"
             alt="Product Image 2"
-            className="h-auto w-full md:w-full md:h-full object-cover"
+            className="w-full h-screen object-cover"
           />
           <div
-            className={`${alata.className} text-[#FFFFFF] absolute inset-0 mt-16 md:mt-10 top-20 lg:top-40 left-16 space-y-2`}
+            className={`${alata.className} text-[#FFFFFF] absolute inset-0 max-md:flex max-md:flex-col max-md:justify-center max-md:w-[60%] max-md:mx-auto md:mt-10 lg:top-40 lg:left-16 space-y-2`}
           >
             <h1 className=" text-xl md:text-2xl lg:text-3xl">
               Building a network <br />
@@ -109,7 +119,7 @@ const Page = () => {
             <h1 className="text-xl md:text-2xl lg:text-3xl pt-1 pb-1">
               $49,500
             </h1>
-            <button className="bg-white text-black text-xs border-2 rounded px-5 py-1">
+            <button className="bg-white text-black text-xs border-2 rounded px-5 py-1 w-[40%]">
               Connect us
             </button>
           </div>
@@ -129,7 +139,6 @@ const Page = () => {
               id={p.id}
               image={p.image}
               name={p.name}
-              price={p.price}
             />
           ))}
         </div>
