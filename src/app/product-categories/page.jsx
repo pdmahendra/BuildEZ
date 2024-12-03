@@ -13,85 +13,91 @@ const products = [
     id: "1",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Clubs",
   },
   {
     id: "2",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Clothing & Rainwear",
   },
   {
     id: "3",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Balls",
   },
   {
     id: "4",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Clubs",
   },
   {
     id: "5",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Clothing & Rainwear",
   },
   {
     id: "6",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Balls",
   },
   {
     id: "7",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Golf Clubs",
   },
   {
     id: "8",
     image: "/productImg4.jpg",
     name: "IRON FRAME",
-    price: "$4,990",
+    // price: "$4,990",
+    category: "Clothing & Rainwear",
   },
 ];
-
 const productCategories = [
-    {
-      id: "1",
-      image: "productCat.jpg",
-      name: "Golf Clubs",
-    },
-    {
-      id: "2",
-      image: "productCat2.jpg",
-      name: "Clothing & Rainwear",
-    },
-    {
-      id: "3",
-      image: "productCat3.jpg",
-      name: "Golf Balls",
-    },
-    {
-      id: "4",
-      image: "productCat4.jpg",
-      name: "Golf Clubs",
-    },
-    {
-      id: "5",
-      image: "productCat5.jpg",
-      name: "Clothing & Rainwear",
-    },
-    {
-      id: "6",
-      image: "productCat6.jpg",
-      name: "Golf Balls",
-    },
-
-  ];
+  {
+    id: "1",
+    image: "productCat.jpg",
+    name: "Golf Clubs",
+  },
+  {
+    id: "2",
+    image: "productCat2.jpg",
+    name: "Clothing & Rainwear",
+  },
+  {
+    id: "3",
+    image: "productCat3.jpg",
+    name: "Golf Balls",
+  },
+  {
+    id: "4",
+    image: "productCat4.jpg",
+    name: "Golf Clubs",
+  },
+  {
+    id: "5",
+    image: "productCat5.jpg",
+    name: "Clothing & Rainwear",
+  },
+  {
+    id: "6",
+    image: "productCat6.jpg",
+    name: "Golf Balls",
+  },
+];
 const page = () => {
   return (
     <div>
