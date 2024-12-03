@@ -97,11 +97,12 @@ const Navbar = () => {
                 Products
               </Link>
               <Link
-              href="/product-categories"
-              className="text-gray-700 hover:text-orange-500"
-            >
-              Product Categories
-            </Link>
+                href="/product-categories"
+                className="text-gray-700 hover:text-orange-500"
+                onClick={() => setMenuOpen(false)}
+              >
+                Product Categories
+              </Link>
               <Link
                 href="/services"
                 className="text-gray-700 hover:text-orange-500"
@@ -119,6 +120,7 @@ const Navbar = () => {
               <Link
                 href="/company-profile"
                 className="text-gray-700 hover:text-orange-500"
+                onClick={() => setMenuOpen(false)}
               >
                 Company Profile
               </Link>
