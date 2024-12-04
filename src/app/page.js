@@ -3,10 +3,17 @@ import { ChevronRight } from "lucide-react";
 // import Footer from "../components/Footer";
 import ImageSlider from "../components/ImageSlider";
 // import Navbar from "../components/Navbar";
+import Link from "next/link";
+import { Alata } from "next/font/google";
+
+const alata = Alata({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 export default function HomePage() {
   return (
-    <div className="font-sans text-gray-900">
+    <div className={`${alata.className} font-sans text-gray-900`}>
       {/* Header */}
       {/* <Navbar /> */}
       {/* Hero Section */}
@@ -14,16 +21,19 @@ export default function HomePage() {
         className="relative w-full h-screen bg-cover bg-center text-white"
         style={{ backgroundImage: "url(" + "/banner.png" + ")" }}
       >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative flex flex-col items-center justify-center h-full z-10">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="relative flex flex-col items-center justify-center h-full z-10 space-y-12">
+          <h1 className="text-4xl md:text-8xl mb-4 text-center">
             Seamless Material
             <br />
             with Components
           </h1>
-          <button className="px-8 py-3 bg-white text-black rounded-md">
-            Connect us
-          </button>
+          <Link
+            href={"/contact"}
+            className="px-12 py-3 bg-white text-[#323334] text-xl font-medium  tracking-widest rounded-lg"
+          >
+            Contact us
+          </Link>
         </div>
       </section>
 
@@ -37,15 +47,22 @@ export default function HomePage() {
             <div className="image image-top-right"></div>
           </div>
           <div className="text-content">
-            <h1>Creating perfect lines and imposing presence</h1>
-            <p>
+            <h1 className="text-3xl md:text-7xl">
+              Creating perfect lines and imposing presence
+            </h1>
+            <p className="md:pl-10 md:w-[600px] pt-10">
               We strive to inspire creativity in architects, designers, and
               builders by offering a diverse range of premium materials that
               embody elegance, durability, and innovation. Our products are
               carefully sourced and meticulously crafted, reflecting our
               dedication to excellence and our passion for design.
             </p>
-            <button>Read About Us</button>
+            <Link
+              href={"/company-profile"}
+              className="border-2 text-xs px-10 py-2 rounded-xl tracking-widest"
+            >
+              READ ABOUT US
+            </Link>
           </div>
           <div className="article-row pb-3">
             <div className="image image-middle-left"></div>
@@ -66,44 +83,40 @@ export default function HomePage() {
         />
       </div>
 
+       
       {/* Delight Services Section */}
-      <section className="flex flex-col md:flex-row bg-gray-900 text-white animie-section">
-        <div className="flex flex-col md:flex-row w-full">
-          {/* Text Section */}
-          <div className="flex items-center justify-center w-full md:w-1/2 p-8 bg-gray-800">
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">Delight Services</h2>
-              <p className="text-lg leading-relaxed">
+      <div className="md:grid md:grid-cols-2 animie-section">
+        <div className="bg-[#384353] text-[#FFFFFF] flex flex-col justify-center items-center p-8">
+          <div className="max-w-lg space-y-12">
+            <h3 className="text-start text-4xl">Delight Services</h3>
+            <div className="text-base space-y-4">
+              <p>
                 We understand that choosing the right materials is crucial for
                 any project. Our team of experts is available to provide
                 personalized consultations and design support to help you select
-                the perfect materials for your vision.
-                <br />
-                <br />
+                the perfect materials for your vision.{" "}
+              </p>{" "}
+              <p>
+                {" "}
                 Whether you need a unique finish or a specific size, we offer
                 tailored solutions to meet your requirements. Collaborate with
                 our designers to create custom products that align with your
-                project’s aesthetic.
-                <br />
-                <br />
+                project’s aesthetic.{" "}
+              </p>{" "}
+              <p>
+                {" "}
                 We are dedicated to sustainable practices, from sourcing
                 materials responsibly to reducing waste in our manufacturing
                 processes. Learn more about our eco-friendly initiatives and how
-                we contribute to a greener future.
+                we contribute to a greener future
               </p>
             </div>
           </div>
-
-          {/* Image Section */}
-          <div className="w-full md:w-1/2">
-            <img
-              src={"/delight-services.png"}
-              alt="Construction Image"
-              className="w-full h-64 md:h-full object-cover"
-            />
-          </div>
         </div>
-      </section>
+        <div className="">
+          <img src="/companyProfileImg2.jpg" alt="" className="w-full h-full" />
+        </div>
+      </div>
 
       <div className="w-full p-3 animie-section">
         <img
@@ -138,7 +151,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2">
             <div className="flex flex-col p-8">
               <div className="flex-grow">
-                <h3 className="text-3xl font-semibold mb-6">
+                <h3 className="text-5xl mb-6 text-[#323334]">
                   The Timeless Appeal of Natural Stone in Modern Design
                 </h3>
 
@@ -169,7 +182,7 @@ export default function HomePage() {
               <div className="relative h-8 mt-8">
                 <div className="absolute left-0 bottom-0 flex items-center transform -rotate-90 origin-left -translate-y-full -translate-x-8">
                   <div className="w-8 h-px bg-gray-300 mr-3"></div>
-                  <span className="text-xs font-medium text-gray-500 tracking-widest">
+                  <span className="text-lg font-medium text-gray-500 tracking-widest">
                     READER STORIES
                   </span>
                 </div>
@@ -186,7 +199,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <div className="border-t border-gray-200"></div>
           <div className="flex justify-center">
             <button className="group flex items-center text-sm font-medium text-gray-900 hover:text-gray-700 transition-colors py-4">
@@ -195,7 +208,7 @@ export default function HomePage() {
             </button>
           </div>
           <div className="border-t border-gray-200"></div>
-        </div>
+        </div> */}
       </div>
 
       <div className="relative h-[600px] w-full overflow-hidden p-5 animie-section">
