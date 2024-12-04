@@ -21,7 +21,7 @@ const page = () => {
           <div className="space-y-8">
             {" "}
             <p className="text-[#384353] text-sm">About us</p>
-            <h3 className="text-3xl md:text-5xl">
+            <h3 className="text-3xl md:text-5xl text-[#000000]">
               <p>We 're providing the best</p>
               <p>customer service</p>
             </h3>
