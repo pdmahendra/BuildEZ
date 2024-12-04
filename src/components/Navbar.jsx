@@ -17,11 +17,13 @@ const Navbar = () => {
       <header
         className={`${alata.className} bg-white shadow-md fixed w-full top-0 z-50`}
       >
-        <div className="flex items-center justify-between max-w-6xl mx-auto py-4 px-4">
+        <div className="flex items-center justify-between w-full mx-auto py-4 px-4 md:pr-10">
           {/* Logo */}
-          <div className="text-2xl font-bold text-orange-500">
-            <img src={"/logo.png"} alt="Logo" className="w-[99px] h-[56px]" />
-          </div>
+          <Link href="/">
+            <div className="text-2xl font-bold text-orange-500">
+              <img src={"/logo.png"} alt="Logo" className="w-[99px] h-[56px]" />
+            </div>
+          </Link>
 
           {/* Hamburger Icon (visible on mobile) */}
           <button
@@ -48,12 +50,12 @@ const Navbar = () => {
             >
               Product Categories
             </Link>
-            <Link
+            {/* <Link
               href="/services"
               className="text-gray-700 hover:text-orange-500"
             >
               Services
-            </Link>
+            </Link> */}
             <Link
               href="/contact"
               className="text-gray-700 hover:text-orange-500"
@@ -66,16 +68,16 @@ const Navbar = () => {
             >
               Company Profile
             </Link>
-            <Link href="/faqs" className="text-gray-700 hover:text-orange-500">
+            {/* <Link href="/faqs" className="text-gray-700 hover:text-orange-500">
               FAQs
-            </Link>
+            </Link> */}
           </nav>
 
-          <div className="hidden lg:block">
+          {/* <div className="md:hidden block">
             <Link href="#" className="text-gray-700 hover:text-orange-500 ">
               ☰
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile Navigation (visible when hamburger is clicked) */}
@@ -103,13 +105,13 @@ const Navbar = () => {
               >
                 Product Categories
               </Link>
-              <Link
+              {/* <Link
                 href="/services"
                 className="text-gray-700 hover:text-orange-500"
                 onClick={() => setMenuOpen(false)}
               >
                 Services
-              </Link>
+              </Link> */}
               <Link
                 href="/contact"
                 className="text-gray-700 hover:text-orange-500"
@@ -124,13 +126,13 @@ const Navbar = () => {
               >
                 Company Profile
               </Link>
-              <Link
+              {/* <Link
                 href="/faqs"
                 className="text-gray-700 hover:text-orange-500"
                 onClick={() => setMenuOpen(false)}
               >
                 FAQs
-              </Link>
+              </Link> */}
             </div>
           </nav>
         )}
