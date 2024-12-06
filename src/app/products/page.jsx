@@ -127,7 +127,7 @@ const Page = () => {
       </div>
       <div className="mt-14 mb-8">
         <div
-          className={`${alata.className} text-2xl text-center mb-6 border-2 py-6`}
+          className={`${alata.className} text-2xl text-center mb-6 border-2 py-6 text-[#323334]`}
         >
           Enjoy our feature products
         </div>
@@ -147,11 +147,11 @@ const Page = () => {
         <div>
           <div className="grid md:grid-cols-2">
             <div className="flex flex-col p-8 flex-grow">
-              <h3 className="text-3xl md:text-5xl mb-6">
+              <h3 className="text-3xl md:text-5xl mb-6 text-[#323334]">
                 The Timeless Appeal of Natural Stone in Modern Design
               </h3>
 
-              <div className="space-y-4 max-sm:text-sm text-gray-600">
+              <div className="space-y-4 max-sm:text-sm text-[#384353]">
                 <p>
                   When it comes to design, the choice of building materials can
                   transform an ordinary space into an extraordinary one. we

@@ -155,7 +155,7 @@ export default function HomePage() {
                   The Timeless Appeal of Natural Stone in Modern Design
                 </h3>
 
-                <div className="space-y-4 text-gray-600">
+                <div className="space-y-4 text-gray-600 text-[#384353]">
                   <p>
                     When it comes to design, the choice of building materials
                     can transform an ordinary space into an extraordinary one.

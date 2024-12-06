@@ -119,7 +119,7 @@ const page = () => {
       </div>
       <div className="mt-16 mb-8">
         <div
-          className={`${alata.className} text-2xl text-center mb-6 border-2 py-6`}
+          className={`${alata.className} text-2xl text-center mb-6 border-2 py-6 text-[#323334]`}
         >
           Enjoy our feature products
         </div>
