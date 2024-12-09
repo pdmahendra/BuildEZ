@@ -7,26 +7,21 @@ export async function POST(req) {
   try {
     await connectDB();
     const { username, password } = await req.json();
-    
 
     if (!username || !password) {
       return new Response(
-        JSON.stringify(
-          { message: "username and password is required" },
-          { status: 400, headers: { "Content-Type": "application/json" } }
-        )
+        JSON.stringify({ message: "username and password is required" }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
 
     const existingUser = await User.findOne({ username });
 
     if (!existingUser) {
-      return new Response(
-        JSON.stringify(
-          { message: "User does not exist" },
-          { status: 400, headers: { "Content-Type": "application/json" } }
-        )
-      );
+      return new Response(JSON.stringify({ message: "User does not exist" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
     //register
