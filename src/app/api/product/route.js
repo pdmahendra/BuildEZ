@@ -3,61 +3,76 @@ import connectDB from "../../../utils/db";
 import { authMiddleware } from "../../../utils/authMiddleware";
 
 export async function POST(req) {
-  await connectDB();
+  try {
+    await connectDB();
 
-  const authResponse = await authMiddleware(req);
+    const authResponse = await authMiddleware(req);
 
-  if (authResponse.status !== 200) {
-    return new Response(JSON.stringify(authResponse.body), {
-      status: authResponse.status,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
+    if (authResponse.status !== 200) {
+      return new Response(JSON.stringify(authResponse.body), {
+        status: authResponse.status,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
 
-  const {
-    productName,
-    price,
-    productDescription,
-    productDetails,
-    category,
-    images,
-  } = await req.json();
+    const {
+      productName,
+      price,
+      productDescription,
+      productDetails,
+      category,
+      images,
+    } = await req.json();
 
-  if (
-    !productName ||
-    !price ||
-    !productDescription ||
-    !productDetails ||
-    !category
-  ) {
+    if (
+      !productName ||
+      !price ||
+      !productDescription ||
+      !productDetails ||
+      !category
+    ) {
+      return new Response(
+        JSON.stringify({ message: "All fields are required" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+    }
+
+    const newProduct = {
+      productName,
+      price,
+      productDescription,
+      productDetails,
+      category,
+      images: images || [],
+    };
+
+    const savedProduct = await Product.create(newProduct);
+
     return new Response(
-      JSON.stringify({ message: "All fields are required" }),
+      JSON.stringify({
+        message: "Product created successfully",
+        product: savedProduct,
+      }),
       {
-        status: 400,
+        status: 201,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+  } catch (error) {
+    console.error("Error while processing the POST request:", error);
+    return new Response(
+      JSON.stringify({
+        message: "An error occurred while processing the request",
+      }),
+      {
+        status: 500,
         headers: { "Content-Type": "application/json" },
       }
     );
   }
-
-  const newProduct = await Product.create({
-    productName,
-    price,
-    productDescription,
-    productDetails,
-    category,
-    images,
-  });
-
-  return new Response(
-    JSON.stringify({
-      message: "Product created successfully",
-      product: newProduct,
-    }),
-    {
-      status: 201,
-      headers: { "Content-Type": "application/json" },
-    }
-  );
 }
 
 export async function GET() {
