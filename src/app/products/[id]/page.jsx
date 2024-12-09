@@ -55,7 +55,7 @@ const page = () => {
           </div>
         </div>
         <div className="space-y-12 mt-8 sm:mt-4">
-          <h1 className="text-5xl">Product Name</h1>
+          <h1 className="text-5xl text-[#000000]">Product Name</h1>
           <div className="space-y-5">
             <h4 className="text-2xl text-[#344054]">Product Description</h4>
             <p className="text-[#667085] text-base">
@@ -71,7 +71,7 @@ const page = () => {
               Lorem Ipsum.
             </p>
           </div>
-          <div className="space-y-5">
+          {/* <div className="space-y-5">
             {" "}
             <div className="text-2xl text-[#344054]">Benefits</div>
             <div className="text-[#667085] space-y-4">
@@ -96,7 +96,7 @@ const page = () => {
                 by the readable content
               </p>
             </div>
-          </div>{" "}
+          </div>{" "} */}
           <div className="space-y-5">
             {" "}
             <div className="text-2xl text-[#344054]">Product Details</div>
