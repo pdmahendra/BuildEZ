@@ -1,5 +1,5 @@
-import connectDB from "../../../../utils/db";
-import Product from "../../../models/productModel";
+import connectDB from "../../../../../utils/db";
+import Product from "../../../../models/productModel";
 
 export async function GET(req, { params }) {
   try {

@@ -1,6 +1,6 @@
-import Product from "../../models/productModel";
-import connectDB from "../../../utils/db";
-import { authMiddleware } from "../../../utils/authMiddleware";
+import Product from "../../../models/productModel";
+import connectDB from "../../../../utils/db";
+import { authMiddleware } from "../../../../utils/authMiddleware";
 
 export async function POST(req) {
   try {

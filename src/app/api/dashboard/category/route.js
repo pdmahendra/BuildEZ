@@ -1,6 +1,6 @@
-import Category from "../../models/categoryModel";
-import connectDB from "../../../utils/db";
-import { authMiddleware } from "../../../utils/authMiddleware";
+import Category from "../../../models/categoryModel";
+import connectDB from "../../../../utils/db";
+import { authMiddleware } from "../../../../utils/authMiddleware";
 
 export async function POST(req) {
   await connectDB();
