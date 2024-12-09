@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function getAllCategories() {
   try {
-    const response = await axios.get(`api/category`, {
+    const response = await axios.get(`api/dashboard/category`, {
       headers: {
         "Content-Type": "application/json",
       },
