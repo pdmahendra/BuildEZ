@@ -8,7 +8,7 @@ export async function POST(req) {
   const authResponse = await authMiddleware(req);
 
   if (authResponse.status !== 200) {
-    return new Response(JSON.stringify({ message: authResponse.body }), {
+    return new Response(JSON.stringify(authResponse.body), {
       status: authResponse.status,
       headers: { "Content-Type": "application/json" },
     });
