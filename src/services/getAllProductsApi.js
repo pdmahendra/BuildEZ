@@ -1,9 +1,8 @@
 import axios from "axios";
-import { Base_Url } from "../utils/contant";
 
 export default async function getAllProducts(payload) {
   try {
-    const response = await axios.get(`${Base_Url}/product`, {
+    const response = await axios.get(`api/product`, {
       headers: {
         "Content-Type": "application/json",
       },

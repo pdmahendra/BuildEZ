@@ -1,9 +1,8 @@
 import axios from "axios";
-import { Base_Url } from "../utils/contant";
 
 export default async function contactApi(payload) {
   try {
-    const response = await axios.post(`${Base_Url}/contact`, payload, {
+    const response = await axios.post(`api/contact`, payload, {
       headers: {
         "Content-Type": "application/json",
       },

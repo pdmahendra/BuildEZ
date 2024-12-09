@@ -1,9 +1,8 @@
 import axios from "axios";
-import { Base_Url } from "../utils/contant";
 
 export default async function loginApi(payload) {
   try {
-    const response = await axios.post(`${Base_Url}/user/login`, payload, {
+    const response = await axios.post(`api/user/login`, payload, {
       headers: {
         "Content-Type": "application/json",
       },

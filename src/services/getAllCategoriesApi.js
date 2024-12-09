@@ -1,9 +1,8 @@
 import axios from "axios";
-import { Base_Url } from "../utils/contant";
 
 export default async function getAllCategories() {
   try {
-    const response = await axios.get(`${Base_Url}/category`, {
+    const response = await axios.get(`api/category`, {
       headers: {
         "Content-Type": "application/json",
       },
