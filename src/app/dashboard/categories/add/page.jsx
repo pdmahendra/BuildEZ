@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Sidebar from "../../../../components/dashboard/Sidebar";
-import Header from "../../../../components/dashboard/Header";
 
 const AddCategory = () => {
   const [categoryName, setCategoryName] = useState("");
@@ -41,7 +40,6 @@ const AddCategory = () => {
     <div className="flex min-h-screen">
       <Sidebar />
       <div className="flex-1">
-        <Header />
         <div className="p-6">
           <h2 className="text-2xl font-bold mb-4">Add Category</h2>
           <form onSubmit={handleAddCategory} className="mb-6">

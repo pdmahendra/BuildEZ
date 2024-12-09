@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import Sidebar from "../../../components/dashboard/Sidebar";
-import Header from "../../../components/dashboard/Header";
 
 const CategoryList = () => {
   const [categories, setCategories] = useState([
@@ -21,7 +20,6 @@ const CategoryList = () => {
     <div className="flex min-h-screen">
       <Sidebar />
       <div className="flex-1">
-        <Header />
         <div className="p-6">
           <h2 className="text-2xl font-bold mb-4">Categories</h2>
           <Link
