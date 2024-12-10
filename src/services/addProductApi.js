@@ -3,7 +3,7 @@ import axios from "axios";
 export default async function addProduct(payload) {
   try {
     const token = localStorage.getItem("accessToken");
-    const response = await axios.post(`api/dashboard/product`, payload, {
+    const response = await axios.post(`/api/dashboard/product`, payload, {
       headers: {
         "Content-Type": "application/json",
         authorization: `Bearer ${token}`,

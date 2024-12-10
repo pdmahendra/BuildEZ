@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function loginApi(payload) {
   try {
-    const response = await axios.post(`api/user/login`, payload, {
+    const response = await axios.post(`/api/user/login`, payload, {
       headers: {
         "Content-Type": "application/json",
       },

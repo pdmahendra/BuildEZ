@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function contactApi(payload) {
   try {
-    const response = await axios.post(`api/contact`, payload, {
+    const response = await axios.post(`/api/contact`, payload, {
       headers: {
         "Content-Type": "application/json",
       },

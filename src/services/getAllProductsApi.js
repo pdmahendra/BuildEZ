@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function getAllProducts(payload) {
   try {
-    const response = await axios.get(`api/dashboard/product`, {
+    const response = await axios.get(`/api/dashboard/product`, {
       headers: {
         "Content-Type": "application/json",
       },
