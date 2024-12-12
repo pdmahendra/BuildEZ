@@ -35,10 +35,9 @@ export default function Login() {
       const response = await loginApi(payload);
 
       if (response) {
-        toast.success("Logged in Successfully", { id: toastId });
-
         localStorage.setItem("accessToken", response.token);
         router.push("/dashboard");
+        toast.success("Logged in Successfully", { id: toastId });
         setUsername("");
         setPassword("");
       }
