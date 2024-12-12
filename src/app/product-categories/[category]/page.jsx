@@ -87,7 +87,7 @@ const page = () => {
   };
 
   return (
-    <div className={`${alata.className}`}>
+    <div className={`${alata.className} pb-[50px]`}>
       <div className="mt-4 mb-8">
         <div className={`${alata.className} text-2xl text-center mb-6 py-6`}>
           {decodedCategory} Category Products
