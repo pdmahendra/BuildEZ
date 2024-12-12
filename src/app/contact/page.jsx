@@ -10,7 +10,7 @@ const alata = Alata({
 
 const page = () => {
   return (
-    <div className={`${alata.className}`}>
+    <div className={`${alata.className} pb-[50px]`}>
       <div className="md:grid md:grid-cols-2 max-w-6xl mx-auto mt-4 sm:mt-20 items-center max-md:flex max-md:flex-col">
         <img
           src="/contactImg1.jpg"
