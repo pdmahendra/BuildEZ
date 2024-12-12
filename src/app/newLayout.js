@@ -36,7 +36,7 @@ export default function Layout({ children }) {
         </div>
       {/* )} */}
 
-      <main className="w-full pb-[50px]">{children}</main>
+      <main className="w-full pb-[50px] min-h-screen">{children}</main>
     </div>
   );
 }
