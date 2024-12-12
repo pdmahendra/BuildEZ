@@ -5,7 +5,7 @@ import ProductCard from "../../../components/product/ProductCard";
 import getAllProducts from "../../../services/getAllProductsApi";
 import { useState, useEffect } from "react";
 import { Alata } from "next/font/google";
-
+import Layout from "../../newLayout"
 const alata = Alata({
   subsets: ["latin"],
   weight: "400",
@@ -26,8 +26,8 @@ const ProductList = () => {
     getCategories();
   }, []);
   return (
-    <div className="flex min-h-screen">
-      <Sidebar />
+    <Layout>
+    <div className="flex">
       <div className="flex-1">
         <div className="p-6 flex justify-between">
           <h2 className="text-2xl font-bold mb-4">Products</h2>
@@ -55,6 +55,7 @@ const ProductList = () => {
         </div>
       </div>
     </div>
+    </Layout>
   );
 };
 
