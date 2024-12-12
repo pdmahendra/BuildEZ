@@ -100,7 +100,7 @@ const productCategories = [
 ];
 const page = () => {
   return (
-    <div>
+    <div className="pb-[50px]">
       <div
         className="bg-cover bg-center h-[500px] md:h-[800px]"
         style={{ backgroundImage: "url('/productCat1.jpg')" }}
