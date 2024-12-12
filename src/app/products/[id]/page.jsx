@@ -44,7 +44,7 @@ const products = [
 ];
 const page = () => {
   return (
-    <div className={`${alata.className}`}>
+    <div className={`${alata.className}  pb-[50px]`}>
       <div className="sm:grid sm:grid-cols-2 max-w-[90%] mx-auto mt-8">
         <div className="col-span-1">
           <div>
