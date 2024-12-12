@@ -16,7 +16,7 @@ const ProductCategoryCard = ({ alata, image, name }) => {
         className="w-full h-[355px] object-contain"
       />
       <div
-        className={`${alata.className} text-center text-[#323334] text-xl pt-2`}
+        className={`${alata.className} text-center text-[#323334] text-xl`}
       >
         {name}
       </div>
