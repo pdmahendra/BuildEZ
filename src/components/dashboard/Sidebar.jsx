@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-const Sidebar = () => {
+const Sidebar = ({ setIsOpen }) => {
   const router = useRouter();
 
   const handleLogout = (e) => {
@@ -12,11 +12,23 @@ const Sidebar = () => {
     localStorage.removeItem("accessToken");
     router.push("/login");
   };
+
+  const handleSidebar = (e) => {
+    e.preventDefault();
+    setIsOpen((prev) => !prev);
+  };
+
   return (
-    <div className="w-64 bg-gray-800 text-white h-screen flex flex-col">
+    <div className="md:w-64 bg-gray-800 text-white flex flex-col">
       <nav className="flex-1 mt-4">
-        <ul className="space-y-4 px-4">
-          <li>
+        <button
+          className="md:hidden text-2xl text-white focus:outline-none absolute right-3"
+          onClick={handleSidebar}
+        >
+          ☰
+        </button>
+        <ul className="space-y-4 px-4 max-md:py-8">
+          <li className="">
             <Link
               href="/dashboard/products"
               className="text-lg hover:text-gray-300"
@@ -30,6 +42,14 @@ const Sidebar = () => {
               className="text-lg hover:text-gray-300"
             >
               Categories
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/dashboard/contacts"
+              className="text-lg hover:text-gray-300"
+            >
+              View Messages
             </Link>
           </li>
           <li>
