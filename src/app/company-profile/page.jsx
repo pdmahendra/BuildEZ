@@ -9,7 +9,7 @@ const alata = Alata({
 
 const page = () => {
   return (
-    <div className={`${alata.className}`}>
+    <div className={`${alata.className} pb-[50px]`}>
       <div
         className="bg-cover bg-center h-[500px] md:h-[800px]"
         style={{ backgroundImage: "url('/companyProfileImg1.jpg')" }}
