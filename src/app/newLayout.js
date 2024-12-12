@@ -11,7 +11,7 @@ const alata = Alata({
 });
 
 export default function Layout({ children }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const yes = isOpen === true ? "block" : "hidden";
 
