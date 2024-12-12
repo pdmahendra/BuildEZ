@@ -13,7 +13,7 @@ const alata = Alata({
 
 export default function HomePage() {
   return (
-    <div className={`${alata.className} font-sans text-gray-900`}>
+    <div className={`${alata.className} font-sans text-gray-900 pb-[50px]`}>
       {/* Header */}
       {/* <Navbar /> */}
       {/* Hero Section */}
