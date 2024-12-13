@@ -49,7 +49,6 @@ export default function Login() {
   return (
     <div
       className={`${alata.className} w-screen h-screen flex flex-col justify-center items-center`}
-      s
     >
       <div className="md:w-[25%] w-[80%] flex flex-col items-start gap-2">
         <div className="flex flex-col gap-1 ">
