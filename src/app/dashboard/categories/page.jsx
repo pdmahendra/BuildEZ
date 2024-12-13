@@ -52,7 +52,7 @@ const CategoryList = () => {
                   alata={alata}
                   key={c._id}
                   id={c._id}
-                  image={"/productCat4.jpg"}
+                  image={c.image}
                   name={c.category}
                 />
               ))}
