@@ -5,18 +5,20 @@ import addCategory from "../../../../services/addCategoryApi";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Layout from "../../../newLayout";
+import uploadImage from "../../../../services/uploadImage";
 
 const AddProduct = () => {
   const router = useRouter();
   const [category, setCategory] = useState("");
   const [image, setImage] = useState("");
+  const [imageUploadLoading, setImageUploadLoading] = useState(false);
 
   const handleProductSubmit = async (e) => {
     e.preventDefault();
     const toastId = toast.loading("Adding new category");
     const payload = {
       category,
-      image: "/productCat4.jpg",
+      image,
     };
 
     try {
@@ -25,23 +27,32 @@ const AddProduct = () => {
         toast.success("Category added successfully", { id: toastId });
         router.push("/dashboard/categories");
         setCategory("");
-        setImage([]);
+        setImage();
       }
     } catch (error) {
       toast.error(error.message, { id: toastId });
     }
   };
 
-  // const handleImageUpload = (e) => {
-  //   const selectedFiles = Array.from(e.target.files);
-  //   setImages((prevImages) => [...prevImages, ...selectedFiles]);
-  // };
+  const handleImageUpload = async (e) => {
+    const toastId = toast.loading("uploading Image");
+    setImageUploadLoading(true);
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
 
-  // const handleDeleteProduct = (id) => {
-  //   setProducts((prevProducts) =>
-  //     prevProducts.filter((prod) => prod.id !== id)
-  //   );
-  // };
+    try {
+      const response = await uploadImage(formData);
+      if (response && response.contentUrl) {
+        setImageUploadLoading(false);
+        setImage(response.contentUrl);
+        toast.success("Image uploaded successfully!", { id: toastId });
+      }
+    } catch (error) {
+      toast.error(error.message, { id: toastId });
+    } finally {
+      setImageUploadLoading(false);
+    }
+  };
 
   return (
     <Layout>
@@ -59,14 +70,20 @@ const AddProduct = () => {
               />
               <input
                 type="file"
-                // onChange={handleImageUpload}
+                onChange={handleImageUpload}
+                accept="image/*"
                 className="w-full p-2 border border-gray-300 rounded mb-4"
               />
               <button
                 type="submit"
-                className="bg-blue-500 text-white p-2 rounded"
+                disabled={imageUploadLoading}
+                className={`bg-blue-500 text-white p-2 rounded ${
+                  imageUploadLoading
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-blue-500 hover:bg-blue-600"
+                }`}
               >
-                Add Product
+                Add Category
               </button>
             </form>
 
