@@ -6,7 +6,6 @@ export async function GET(req, { params }) {
     await connectDB();
 
     const { id } = params;
-    console.log(id);
 
     const product = await Product.find({ category: id });
 
