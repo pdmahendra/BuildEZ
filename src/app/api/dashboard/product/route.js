@@ -22,6 +22,7 @@ export async function POST(req) {
       productDetails,
       category,
       images,
+      extraFields
     } = await req.json();
 
     if (
@@ -47,6 +48,7 @@ export async function POST(req) {
       productDetails,
       category,
       images: images || [],
+      extraFields
     };
 
     const savedProduct = await Product.create(newProduct);
