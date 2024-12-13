@@ -2,11 +2,11 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const ProductCategoryCard = ({ alata, image, name }) => {
+const ProductCategoryCard = ({ alata, image, name, id }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/product-categories/${name}`);
+    router.push(`/product-categories/${id}`);
   };
   return (
     <div className="h-[355px] w-[330px]" onClick={handleClick}>
