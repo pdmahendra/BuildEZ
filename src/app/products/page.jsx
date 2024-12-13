@@ -92,7 +92,7 @@ const Page = () => {
                 alata={alata}
                 key={p._id}
                 id={p._id}
-                image={"/productImg4.jpg"}
+                image={p.images[0]}
                 name={p.productName}
               />
             ))}
