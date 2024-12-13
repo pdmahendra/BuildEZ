@@ -1,17 +1,29 @@
-import React from "react";
-import { ChevronRight } from "lucide-react";
-// import Footer from "../components/Footer";
-import ImageSlider from "../components/ImageSlider";
-// import Navbar from "../components/Navbar";
-import Link from "next/link";
-import { Alata } from "next/font/google";
+"use client";
 
+import React, { useState, useEffect } from "react";
+import ImageSlider from "../components/ImageSlider";
+import getAllProducts from "../services/getAllProductsApi";
+import Link from "next/link";
+import ProductCard from "../components/product/ProductCard";
+import { Alata } from "next/font/google";
 const alata = Alata({
   subsets: ["latin"],
   weight: "400",
 });
 
 export default function HomePage() {
+  const [products, setProducts] = useState([]);
+
+  // Get products
+  const getProducts = async () => {
+    const response = await getAllProducts();
+    setProducts(response.products);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <div className={`${alata.className} font-sans text-gray-900 pb-[50px]`}>
       {/* Header */}
@@ -75,15 +87,26 @@ export default function HomePage() {
       {/* creating perfect section  */}
 
       {/* Feature Products Section */}
-      <div className="w-full p-3 animie-section">
-        <img
-          src={"/Frame 51.png"}
-          alt="feature products"
-          className="w-full h-full object-cover rounded-md shadow-lg"
-        />
+      <div className="mt-12 mb-8 animie-section">
+        <div
+          className={`${alata.className} text-2xl text-center mb-6 border-2 py-6 text-[#323334]`}
+        >
+          Enjoy our feature products
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 place-items-center">
+          {products &&
+            products?.map((p) => (
+              <ProductCard
+                alata={alata}
+                key={p.id}
+                id={p.id}
+                image={p.images[0]}
+                name={p.productName}
+              />
+            ))}
+        </div>
       </div>
 
-       
       {/* Delight Services Section */}
       <div className="md:grid md:grid-cols-2 animie-section">
         <div className="bg-[#384353] text-[#FFFFFF] flex flex-col justify-center items-center p-8">
