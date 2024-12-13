@@ -12,11 +12,11 @@ const ProductCategoryCard = ({ alata, image, name }) => {
     <div className="h-[355px] w-[330px]" onClick={handleClick}>
       <img
         src={image}
-        alt="Product Image"
-        className="w-full h-[355px] object-contain"
+        alt="Category Image"
+        className="w-full h-[355px] object-cover"
       />
       <div
-        className={`${alata.className} text-center text-[#323334] text-xl`}
+        className={`${alata.className} pt-2 text-center text-[#323334] text-xl`}
       >
         {name}
       </div>
