@@ -15,7 +15,7 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   // Get products
-  const getCategories = async () => {
+  const getProducts = async () => {
     const response = await getAllProducts();
     console.log(response.products);
     
@@ -23,7 +23,7 @@ const ProductList = () => {
   };
 
   useEffect(() => {
-    getCategories();
+    getProducts();
   }, []);
   return (
     <Layout>
@@ -46,9 +46,9 @@ const ProductList = () => {
             products?.map((p) => (
               <ProductCard
                 alata={alata}
-                key={p.id}
-                id={p.id}
-                image={"/productImg4.jpg"}
+                key={p._id}
+                id={p._id}
+                image={p.images[0]}
                 name={p.productName}
               />
             ))}
