@@ -54,7 +54,7 @@ const page = () => {
                 alata={alata}
                 key={c._id}
                 id={c._id}
-                image={"/productCat4.jpg"}
+                image={c.image}
                 name={c.category}
               />
             ))}
@@ -73,7 +73,7 @@ const page = () => {
                 alata={alata}
                 key={p.id}
                 id={p.id}
-                image={"/productImg4.jpg"}
+                image={p.images[0]}
                 name={p.productName}
               />
             ))}
