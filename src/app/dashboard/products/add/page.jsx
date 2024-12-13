@@ -1,30 +1,25 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Sidebar from "../../../../components/dashboard/Sidebar";
+import React, { useEffect, useState, useRef } from "react";
 import getAllCategories from "../../../../services/getAllCategoriesApi";
 import addProduct from "../../../../services/addProductApi";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Layout from "../../../newLayout";
+import uploadImage from "../../../../services/uploadImage";
 
 const AddProduct = () => {
   const router = useRouter();
+  const imageInputRef = useRef(null);
   const [productName, setProductName] = useState("");
   const [price, setPrice] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [productDetails, setProductDetails] = useState("");
   const [category, setCategory] = useState("");
-  const [images, setImages] = useState([
-    "/productImg4.jpg",
-    "/productImg4.jpg",
-    "/productImg4.jpg",
-    "/productImg4.jpg",
-    "/productImg4.jpg",
-    "/productImg4.jpg",
-    "/productImg4.jpg",
-  ]);
+  const [images, setImages] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [imageUploadLoading, setImageUploadLoading] = useState(false);
+  const [extraFields, setExtraFields] = useState([]);
 
   // Get categories
   const getCategories = async () => {
@@ -36,8 +31,6 @@ const AddProduct = () => {
     getCategories();
   }, []);
 
-  // const [products, setProducts] = useState([]);
-
   const handleProductSubmit = async (e) => {
     e.preventDefault();
     const toastId = toast.loading("Adding new product");
@@ -48,6 +41,7 @@ const AddProduct = () => {
       productDetails,
       category,
       images,
+      extraFields: extraFields,
     };
 
     try {
@@ -61,22 +55,51 @@ const AddProduct = () => {
         setProductDetails("");
         setCategory("");
         setImages([]);
+        setExtraFields([]);
       }
     } catch (error) {
       toast.error(error.message, { id: toastId });
     }
   };
 
-  // const handleImageUpload = (e) => {
-  //   const selectedFiles = Array.from(e.target.files);
-  //   setImages((prevImages) => [...prevImages, ...selectedFiles]);
-  // };
+  const handleImageUpload = async (e) => {
+    const toastId = toast.loading("uploading Image");
+    setImageUploadLoading(true);
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
 
-  // const handleDeleteProduct = (id) => {
-  //   setProducts((prevProducts) =>
-  //     prevProducts.filter((prod) => prod.id !== id)
-  //   );
-  // };
+    try {
+      const response = await uploadImage(formData);
+      if (response && response.contentUrl) {
+        setImageUploadLoading(false);
+        setImages((prev) => [...prev, response.contentUrl]);
+
+        if (imageInputRef.current) {
+          imageInputRef.current.value = null;
+        }
+
+        toast.success("Image uploaded successfully!", { id: toastId });
+      }
+    } catch (error) {
+      toast.error(error.message, { id: toastId });
+    } finally {
+      setImageUploadLoading(false);
+    }
+  };
+
+  const handleAddField = () => {
+    setExtraFields((prev) => [...prev, { heading: "", value: "" }]);
+  };
+
+  const handleExtraFieldChange = (index, key, value) => {
+    const updatedFields = [...extraFields];
+    updatedFields[index][key] = value;
+    setExtraFields(updatedFields);
+  };
+
+  const handleRemoveField = (index) => {
+    setExtraFields((prev) => prev.filter((_, i) => i !== index));
+  };
 
   return (
     <Layout>
@@ -124,29 +147,75 @@ const AddProduct = () => {
                 ))}
               </select>
               <input
+                ref={imageInputRef}
                 type="file"
                 multiple
-                // onChange={handleImageUpload}
+                accept="image/*"
+                onChange={handleImageUpload}
                 className="w-full p-2 border border-gray-300 rounded mb-4"
               />
-              {/* {images.length > 0 && (
-              <div className="mb-4">
-                <h4 className="font-semibold">Uploaded Images:</h4>
-                <div className="flex gap-4 mt-2">
-                  {images.map((image, index) => (
-                    <img
-                      key={index}
-                      src={URL.createObjectURL(image)}
-                      alt={`Uploaded ${index}`}
-                      className="w-16 h-16 object-cover rounded border"
-                    />
-                  ))}
+
+              {images.length > 0 && (
+                <div className="mb-4">
+                  <div className="flex gap-4 mt-2">
+                    {images.map((image, index) => (
+                      <img
+                        key={index}
+                        src={image}
+                        alt={`Uploaded ${index}`}
+                        className="w-16 h-16 object-cover rounded border"
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )} */}
+              )}
+
+              {extraFields.map((field, index) => (
+                <div key={index} className="flex gap-4 mb-4 items-center">
+                  <input
+                    type="text"
+                    placeholder="Field Heading"
+                    value={field.heading}
+                    onChange={(e) =>
+                      handleExtraFieldChange(index, "heading", e.target.value)
+                    }
+                    className="flex-1 p-2 border border-gray-300 rounded"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Field Value"
+                    value={field.value}
+                    onChange={(e) =>
+                      handleExtraFieldChange(index, "value", e.target.value)
+                    }
+                    className="flex-1 p-2 border border-gray-300 rounded"
+                  />{" "}
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveField(index)}
+                    className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+
+              <button
+                type="button"
+                onClick={handleAddField}
+                className="p-2 bg-green-500 text-white px-4 rounded mb-4 hover:bg-green-600"
+              >
+                Add More Fields
+              </button>
+
               <button
                 type="submit"
-                className="bg-blue-500 text-white p-2 rounded"
+                disabled={imageUploadLoading}
+                className={`bg-blue-500 text-white px-4 p-2 ml-8 rounded ${
+                  imageUploadLoading
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-blue-500 hover:bg-blue-600"
+                }`}
               >
                 Add Product
               </button>
