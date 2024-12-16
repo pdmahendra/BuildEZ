@@ -59,7 +59,7 @@ const AddProduct = () => {
       <div className={`flex min-h-screen`}>
         <div className="flex-1">
           <div className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Add Category</h2>
+            <h2 className="text-2xl font-bold mb-4 text-[#000000]">Add Category</h2>
             <form onSubmit={handleProductSubmit} className="mb-6">
               <input
                 type="text"

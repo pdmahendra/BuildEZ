@@ -9,7 +9,7 @@ const Dashboard = () => {
         <div className="flex-1 flex flex-col">
           {/* <Header /> */}
           <div className="p-6">
-            <h3 className="text-3xl font-bold mb-6">
+            <h3 className="text-3xl font-bold mb-6 text-[#000000]">
               Welcome to the Admin Dashboard!
             </h3>
 

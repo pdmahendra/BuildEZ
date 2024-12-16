@@ -106,7 +106,9 @@ const AddProduct = () => {
       <div className={`flex min-h-screen`}>
         <div className="flex-1">
           <div className="p-6">
-            <h2 className="text-2xl font-bold mb-4">Add Product</h2>
+            <h2 className="text-2xl font-bold mb-4 text-[#000000]">
+              Add Product
+            </h2>
             <form onSubmit={handleProductSubmit} className="mb-6">
               <input
                 type="text"
@@ -171,7 +173,7 @@ const AddProduct = () => {
               )}
 
               {extraFields.map((field, index) => (
-                <div key={index} className="flex gap-4 mb-4 items-center">
+                <div key={index} className="md:flex max-md:space-y-4 gap-4 mb-4 items-center">
                   <input
                     type="text"
                     placeholder="Field Heading"
@@ -179,7 +181,7 @@ const AddProduct = () => {
                     onChange={(e) =>
                       handleExtraFieldChange(index, "heading", e.target.value)
                     }
-                    className="flex-1 p-2 border border-gray-300 rounded"
+                    className="flex-1 p-2 border border-gray-300 rounded max-md:w-full"
                   />
                   <input
                     type="text"
@@ -188,7 +190,7 @@ const AddProduct = () => {
                     onChange={(e) =>
                       handleExtraFieldChange(index, "value", e.target.value)
                     }
-                    className="flex-1 p-2 border border-gray-300 rounded"
+                    className="flex-1 p-2 border border-gray-300 rounded max-md:w-full"
                   />{" "}
                   <button
                     type="button"
@@ -200,10 +202,12 @@ const AddProduct = () => {
                 </div>
               ))}
 
+  
+
               <button
                 type="button"
                 onClick={handleAddField}
-                className="p-2 bg-green-500 text-white px-4 rounded mb-4 hover:bg-green-600"
+                className="p-2 bg-green-500 text-white px-4 rounded mb-4 hover:bg-green-600 max-md:mt-4"
               >
                 Add More Fields
               </button>

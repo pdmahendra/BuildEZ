@@ -29,10 +29,10 @@ const Contacts = () => {
 
   return (
     <Layout>
-      <div className={`${alata.className} flex min-h-screen`}>
-        <div className="flex-grow p-6">
-          <h2 className={` text-2xl mb-4`}>Contact Us Messages</h2>
-          <div className="pt-4 max-sm:w-[420px]">
+      <div className={`${alata.className} min-h-screen min-w-[300px] w-full`}>
+        <div className=" p-6">
+          <h2 className={` text-2xl mb-4 text-[#000000]`}>Contact Us Messages</h2>
+          <div className="pt-4">
             <ContactTable data={contacts} />
           </div>
         </div>
