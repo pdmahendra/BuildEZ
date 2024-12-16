@@ -13,7 +13,7 @@ const ProductCard = ({ alata, image, name, id }) => {
       <img
         src={image}
         alt="Product Image"
-        className="w-full h-[355px] object-cover"
+        className="w-full h-[355px] object-cover rounded-lg"
       />
       <div
         className={`${alata.className} text-center text-[#323334] text-xs tracking-widest pt-2`}
