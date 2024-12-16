@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "../../components/product/ProductCard";
 import { ChevronRight } from "lucide-react";
-import  getAllProducts  from "../../services/getAllProductsApi";
+import getAllProducts from "../../services/getAllProductsApi";
+import SkeletonComponent from "../../ui/Skeleton"
 import { Alata } from "next/font/google";
 
 const alata = Alata({
@@ -13,11 +14,13 @@ const alata = Alata({
 
 const Page = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Get products
   const getProducts = async () => {
     const response = await getAllProducts();
     setProducts(response.products);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -85,18 +88,28 @@ const Page = () => {
         >
           Enjoy our feature products
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 place-items-center">
-          {products &&
-            products.map((p) => (
-              <ProductCard
-                alata={alata}
-                key={p._id}
-                id={p._id}
-                image={p.images[0]}
-                name={p.productName}
-              />
-            ))}
-        </div>
+
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 place-items-center">
+            <SkeletonComponent className="h-[355px] w-[330px] rounded-3xl" />
+            <SkeletonComponent className="h-[355px] w-[330px] rounded-3xl" />
+            <SkeletonComponent className="h-[355px] w-[330px] rounded-3xl" />
+            <SkeletonComponent className="h-[355px] w-[330px] rounded-3xl" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 place-items-center">
+            {products &&
+              products?.map((p) => (
+                <ProductCard
+                  alata={alata}
+                  key={p._id}
+                  id={p._id}
+                  image={p.images[0]}
+                  name={p.productName}
+                />
+              ))}
+          </div>
+        )}
       </div>
       <div className="max-w-7xl mx-auto p-4 mt-16">
         <div>
