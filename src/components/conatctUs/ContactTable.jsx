@@ -93,13 +93,13 @@ export default function ContactTable({ data = [] }) {
 
   return (
     <div className="border border-gray-300 rounded-3xl mt-6">
-      <div className="p-4">
+      <div className="p-4 ">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className="px-14">
+                  <TableHead key={header.id} className="px-14 border-b">
                     {flexRender(
                       header.column.columnDef.header,
                       header.getContext()
@@ -117,7 +117,7 @@ export default function ContactTable({ data = [] }) {
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="px-4">
+                    <TableCell key={cell.id} className="px-4 border-b">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
