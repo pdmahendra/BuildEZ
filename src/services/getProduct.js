@@ -10,9 +10,9 @@ export default async function getProductById(id) {
 
     return response.data;
   } catch (error) {
-    console.error("Error while creating contact:", error);
+    console.error("Error while fetching product:", error);
     throw new Error(
-      error.response?.data?.message || "Failed to create contact"
+      error.response?.data?.message || "Failed to fetch product"
     );
   }
 }
@@ -27,9 +27,9 @@ export async function getProductByCategory(id) {
 
     return response.data;
   } catch (error) {
-    console.error("Error while creating contact:", error);
+    console.error("Error while fetching product:", error);
     throw new Error(
-      error.response?.data?.message || "Failed to create contact"
+      error.response?.data?.message || "Failed to fetch product"
     );
   }
 }
