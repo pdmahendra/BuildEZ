@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import loginApi from "../../services/loginApi";
 import { Alata } from "next/font/google";
 import { toast } from "react-hot-toast";
+import { useUser } from "../context/UserContext";
 
 const alata = Alata({
   subsets: ["latin"],
@@ -13,6 +14,7 @@ const alata = Alata({
 
 export default function Login() {
   const router = useRouter();
+  const { setUser } = useUser();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -36,6 +38,7 @@ export default function Login() {
 
       if (response) {
         localStorage.setItem("accessToken", response.token);
+        setUser(response.user);
         router.push("/dashboard");
         toast.success("Logged in Successfully", { id: toastId });
         setUsername("");
