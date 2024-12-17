@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import ProductCategoryCard from "../../../components/product/ProductCategoryCard";
+import AdminCategoryCard from "../../../components/product/AdminCategoryCard";
 import getAllCategories from "../../../services/getAllCategoriesApi";
 import Layout from "../../newLayout";
 import SkeletonComponent from "../../../ui/Skeleton";
@@ -27,10 +27,6 @@ const CategoryList = () => {
   useEffect(() => {
     getCategories();
   }, []);
-
-  const handleDelete = (id) => {
-    setCategories(categories.filter((category) => category.id !== id));
-  };
 
   return (
     <Layout>
@@ -59,12 +55,13 @@ const CategoryList = () => {
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 place-items-center">
               {categories &&
                 categories.map((c) => (
-                  <ProductCategoryCard
+                  <AdminCategoryCard
                     alata={alata}
                     key={c._id}
                     id={c._id}
                     image={c.image}
                     name={c.category}
+                    refetch={getCategories}
                   />
                 ))}
             </div>

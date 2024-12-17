@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import ProductCard from "../../../components/product/ProductCard";
+import AdminProductCard from "../../../components/product/AdminProductCard";
 import getAllProducts from "../../../services/getAllProductsApi";
 import { useState, useEffect } from "react";
 import Layout from "../../newLayout";
@@ -51,12 +51,13 @@ const ProductList = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-12 place-items-center">
               {products &&
                 products?.map((p) => (
-                  <ProductCard
+                  <AdminProductCard
                     alata={alata}
                     key={p._id}
                     id={p._id}
                     image={p.images[0]}
                     name={p.productName}
+                    refetch={getProducts}
                   />
                 ))}
             </div>
