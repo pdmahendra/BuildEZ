@@ -9,7 +9,7 @@ const ProductCategoryCard = ({ alata, image, name, id }) => {
     router.push(`/product-categories/${id}`);
   };
   return (
-    <div className="h-[355px] w-[330px]" onClick={handleClick}>
+    <div className="h-[355px] w-[330px] cursor-pointer" onClick={handleClick}>
       <img
         src={image}
         alt="Category Image"
