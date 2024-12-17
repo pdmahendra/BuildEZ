@@ -92,8 +92,8 @@ export default function ContactTable({ data = [] }) {
   const pageCount = Math.ceil(data.length / pageSize);
 
   return (
-    <div className="border border-gray-300 rounded-3xl mt-6">
-      <div className="p-4 ">
+    <div className="border border-gray-300 rounded-3xl mt-6 overflow-x-auto">
+      <div className="p-4">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
