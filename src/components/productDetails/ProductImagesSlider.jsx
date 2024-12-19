@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 
-const ProductImageSlider = ({ images }) => {
+const ProductImageSlider = ({ images, onImageSelect }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imagesPerPage, setImagesPerPage] = useState(2);
 
@@ -36,6 +36,10 @@ const ProductImageSlider = ({ images }) => {
     }
   };
 
+  const handleImageClick = (image) => {
+    onImageSelect(image);
+  };
+
   return (
     <div className="relative w-full flex mt-8">
       <button
@@ -48,7 +52,7 @@ const ProductImageSlider = ({ images }) => {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
-          stroke="currentColor"
+          stroke="black"
           className="size-6"
         >
           <path
@@ -71,7 +75,8 @@ const ProductImageSlider = ({ images }) => {
               key={index}
               src={image}
               alt={`Image ${index + 1}`}
-              className="h-auto max-h-[100px] w-[100px] object-contain"
+              className="h-auto max-h-[100px] w-[100px] object-contain rounded-lg"
+              onClick={() => handleImageClick(image)}
             />
           ))}
         </div>
@@ -87,7 +92,7 @@ const ProductImageSlider = ({ images }) => {
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
-          stroke="currentColor"
+          stroke="black"
           className="size-6"
         >
           <path

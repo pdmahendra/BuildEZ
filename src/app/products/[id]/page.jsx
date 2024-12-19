@@ -28,11 +28,13 @@ const page = () => {
   const [productsLoading, setProductsLoading] = useState(true);
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(""); 
 
   // Get products
   const getProduct = async () => {
     const response = await getProductById(id);
     setProduct(response.product);
+    setSelectedImage(response.product.images[0]);
     setLoading(false);
   };
 
@@ -50,6 +52,7 @@ const page = () => {
   useEffect(() => {
     getProducts();
   }, []);
+
   return (
     <div className={`${alata.className} pb-[50px]`}>
       {loading ? (
@@ -62,13 +65,16 @@ const page = () => {
           <div className="col-span-1">
             <div>
               <img
-                src={product?.images[0]}
+                src={selectedImage}
                 alt="product image"
-                className="object-cover w-[600px] h-[707px] rounded-2xl"
+                className="object-cover w-[600px] h-[707px] rounded-lg"
               />
             </div>
             <div className="sm:mr-24">
-              <ProductImageSlider images={productImages} />
+            <ProductImageSlider
+                images={product?.images}
+                onImageSelect={setSelectedImage}
+              />
             </div>
           </div>
           <div className="space-y-12 mt-8 sm:mt-4 max-w-full">
