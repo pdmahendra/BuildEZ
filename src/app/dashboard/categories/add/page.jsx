@@ -59,20 +59,22 @@ const AddProduct = () => {
       <div className={`flex min-h-screen`}>
         <div className="flex-1">
           <div className="p-6">
-            <h2 className="text-2xl font-bold mb-4 text-[#000000]">Add Category</h2>
+            <h2 className="text-2xl font-bold mb-4 text-[#000000]">
+              Add Category
+            </h2>
             <form onSubmit={handleProductSubmit} className="mb-6">
               <input
                 type="text"
                 placeholder="Category Name"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]"
               />
               <input
                 type="file"
                 onChange={handleImageUpload}
                 accept="image/*"
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]" 
               />
               <button
                 type="submit"

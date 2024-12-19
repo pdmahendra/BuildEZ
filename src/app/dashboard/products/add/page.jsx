@@ -115,31 +115,31 @@ const AddProduct = () => {
                 placeholder="Product Name"
                 value={productName}
                 onChange={(e) => setProductName(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]"
               />
               <input
                 type="text"
                 placeholder="Price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]"
               />
               <textarea
                 placeholder="Product Description"
                 value={productDescription}
                 onChange={(e) => setProductDescription(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]"
               />
               <textarea
                 placeholder="Product Details"
                 value={productDetails}
                 onChange={(e) => setProductDetails(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]"
               />
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded mb-4"
+                className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]"
               >
                 <option value="">Select Category</option>
                 {categories.map((c) => (

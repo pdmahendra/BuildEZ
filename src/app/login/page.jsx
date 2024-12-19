@@ -55,30 +55,30 @@ export default function Login() {
     >
       <div className="md:w-[25%] w-[80%] flex flex-col items-start gap-2">
         <div className="flex flex-col gap-1 ">
-          <div className="font-semibold text-[2rem]">Login</div>
-          <div>Please enter your details to Log In</div>
+          <div className="font-semibold text-[2rem] text-[#323334]">Login</div>
+          <div className="text-[#323334]">Please enter your details to Log In</div>
         </div>
         <form className="w-full" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-4 w-full">
             <div className="flex flex-col gap-1">
-              <div>Username*</div>
+              <div className="text-[#323334]">Username*</div>
               <input
                 type="text"
                 name="username"
                 value={username}
                 onChange={handleChange}
-                className="bg-[#EFEFEF] px-4 py-2 rounded-[5px] w-full"
+                className="bg-[#EFEFEF] px-4 py-2 rounded-[5px] w-full text-[#323334]"
                 required
               />
             </div>
-            <div className="flex flex-col gap-1">
-              <div>Password*</div>
+            <div className="flex flex-col gap-1 ">
+              <div className="text-[#323334]">Password*</div>
               <input
                 type="password"
                 name="password"
                 value={password}
                 onChange={handleChange}
-                className="bg-[#EFEFEF] px-4 py-2 rounded-[5px] w-full"
+                className="bg-[#EFEFEF] px-4 py-2 rounded-[5px] w-full text-[#323334]"
                 required
               />
             </div>
