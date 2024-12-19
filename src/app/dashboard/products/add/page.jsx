@@ -166,6 +166,7 @@ const AddProduct = () => {
                         src={image}
                         alt={`Uploaded ${index}`}
                         className="w-16 h-16 object-cover rounded border"
+                        loading="lazy" 
                       />
                     ))}
                   </div>

@@ -68,6 +68,7 @@ const page = () => {
                 src={selectedImage}
                 alt="product image"
                 className="object-cover w-[600px] h-[707px] rounded-lg"
+                loading="lazy" 
               />
             </div>
             <div className="sm:mr-24">

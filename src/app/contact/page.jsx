@@ -15,7 +15,8 @@ const page = () => {
         <img
           src="/contactImg1.jpg"
           alt="Years of exp image"
-          className="object-cover "
+          className="object-cover"
+          loading="lazy" 
         />
         <div className="space-y-12 max-md:text-center">
           <div className="space-y-8">

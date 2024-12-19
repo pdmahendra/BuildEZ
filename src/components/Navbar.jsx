@@ -21,7 +21,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/">
             <div className="text-2xl font-bold text-orange-500">
-              <img src={"/logo.png"} alt="Logo" className="w-[99px] h-[56px]" />
+              <img src={"/logo.png"} alt="Logo" className="w-[99px] h-[56px]" loading="lazy" />
             </div>
           </Link>
 

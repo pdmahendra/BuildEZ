@@ -43,7 +43,7 @@ const page = () => {
           </div>
         </div>
         <div className="">
-          <img src="/companyProfileImg2.jpg" alt="" className="w-full h-full" />
+          <img src="/companyProfileImg2.jpg" alt="image" className="w-full h-full" loading="lazy" />
         </div>
       </div>
       <div className="mt-12 max-w-3xl mx-auto">

@@ -35,6 +35,7 @@ const Page = () => {
             src="/productImg1.jpg"
             alt="Product Image 1"
             className="w-full h-full object-cover"
+            loading="lazy" 
           />
           <div
             className={`${alata.className} text-[#FFFFFF] absolute inset-0 mt-16 md:mt-10 top-20 lg:top-40 left-16 space-y-2`}
@@ -61,6 +62,7 @@ const Page = () => {
             src="/productImg2.jpg"
             alt="Product Image 2"
             className="w-full h-screen object-cover"
+            loading="lazy" 
           />
           <div
             className={`${alata.className} text-[#FFFFFF] absolute inset-0 max-md:flex max-md:flex-col max-md:justify-center max-md:w-[60%] max-md:mx-auto md:mt-10 lg:top-40 lg:left-16 space-y-2`}
@@ -148,6 +150,7 @@ const Page = () => {
                 src={"/article.png"}
                 alt="Modern interior design"
                 className="w-full h-full object-cover"
+                loading="lazy" 
               />
             </div>
           </div>

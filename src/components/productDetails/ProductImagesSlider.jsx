@@ -77,6 +77,7 @@ const ProductImageSlider = ({ images, onImageSelect }) => {
               alt={`Image ${index + 1}`}
               className="h-auto max-h-[100px] w-[100px] object-contain rounded-lg"
               onClick={() => handleImageClick(image)}
+              loading="lazy" 
             />
           ))}
         </div>

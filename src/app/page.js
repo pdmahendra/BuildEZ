@@ -137,7 +137,7 @@ export default function HomePage() {
           </div>
         </div>
         <div className="">
-          <img src="/companyProfileImg2.jpg" alt="" className="w-full h-full" />
+          <img src="/companyProfileImg2.jpg" alt="image" className="w-full h-full" loading="lazy" />
         </div>
       </div>
 
@@ -146,6 +146,7 @@ export default function HomePage() {
           src={"/details.png"}
           alt="Construction site"
           className="w-full h-full object-cover rounded-md shadow-lg"
+          loading="lazy" 
         />
       </div>
 
@@ -154,6 +155,7 @@ export default function HomePage() {
           src={"/helmet-bg.png"}
           alt="City construction scene"
           className="w-full h-full object-cover"
+          loading="lazy" 
         />
 
         <div className="absolute inset-0 flex items-center justify-center">
@@ -161,6 +163,7 @@ export default function HomePage() {
             src={"/helmet.png"}
             alt="Hard hat"
             className="w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 object-contain shadow-lg rounded-md"
+            loading="lazy" 
           />
         </div>
       </div>
@@ -217,6 +220,7 @@ export default function HomePage() {
                 src={"/article.png"}
                 alt="Modern interior design"
                 className="w-full h-full object-cover"
+                loading="lazy" 
               />
             </div>
           </div>
@@ -240,6 +244,7 @@ export default function HomePage() {
             src={"/high-end.png"}
             alt="City skyline with modern buildings"
             className="w-full h-full object-cover"
+            loading="lazy" 
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>

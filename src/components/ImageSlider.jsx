@@ -27,7 +27,7 @@ const ImageSlider = () => {
 
   return (
     <div className="image-slider">
-      <img src={images[pos]} />
+      <img src={images[pos]} alt="image" loading="lazy" />
     </div>
   );
 };

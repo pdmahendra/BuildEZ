@@ -32,6 +32,7 @@ const AdminCategoryCard = ({ alata, image, name, id, refetch }) => {
         alt="Category Image"
         className="w-full h-[355px] object-cover rounded-lg"
         onClick={handleClick}
+        loading="lazy" 
       />
       <div
         className={`${alata.className} pt-2 text-center text-[#323334] text-xl flex justify-center gap-4 items-center`}

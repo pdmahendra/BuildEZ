@@ -14,6 +14,7 @@ const ProductCard = ({ alata, image, name, id }) => {
         src={image}
         alt="Product Image"
         className="w-full h-[355px] object-cover rounded-lg"
+        loading="lazy" 
       />
       <div
         className={`${alata.className} text-center text-[#323334] text-xs tracking-widest pt-2`}
