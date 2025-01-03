@@ -88,8 +88,12 @@ const page = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-9 mt-12">
-          {data.map((d) => (
-            <ProfileCard name={d.name} designation={d.designation}/>
+          {data.map((d, index) => (
+            <ProfileCard
+              key={index}
+              name={d.name}
+              designation={d.designation}
+            />
           ))}
         </div>
       </div>
