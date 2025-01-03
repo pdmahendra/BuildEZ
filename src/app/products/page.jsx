@@ -29,8 +29,8 @@ const Page = () => {
 
   return (
     <div className={`${alata.className}  pb-[50px]`}>
-      <div className="grid grid-cols-1 md:grid-cols-3">
-        <div className="relative col-span-2 w-full h-full hidden md:block">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3"> */}
+        {/* <div className="relative col-span-2 w-full h-full hidden md:block">
           <img
             src="/productImg1.jpg"
             alt="Product Image 1"
@@ -55,9 +55,9 @@ const Page = () => {
               Connect us
             </button>
           </div>
-        </div>
+        </div> */}
 
-        <div className="relative col-span-1 w-full h-full hidden md:block">
+        {/* <div className="relative col-span-1 w-full h-full hidden md:block">
           <img
             src="/productImg2.jpg"
             alt="Product Image 2"
@@ -82,8 +82,8 @@ const Page = () => {
               Connect us
             </button>
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
       <div className="mt-14 mb-8">
         <div
           className={`${alata.className} text-2xl text-center mb-6 border-2 py-6 text-[#323334]`}
