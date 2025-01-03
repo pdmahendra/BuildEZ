@@ -57,7 +57,7 @@ const Page = () => {
           </div>
         </div>
 
-        <div className="relative col-span-1 w-full h-full">
+        <div className="relative col-span-1 w-full h-full hidden md:block">
           <img
             src="/productImg2.jpg"
             alt="Product Image 2"

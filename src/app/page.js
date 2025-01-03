@@ -104,6 +104,19 @@ export default function HomePage() {
           </SwiperSlide>
         </Swiper>
       </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 relative h-full md:h-[400px] w-full overflow-hidden p-5 animie-section mt-16 max-w-7xl mx-auto place-items-center gap-8">
+        <div className="col-span-1">
+          <img src="./partner.jpeg" />
+        </div>
+        <div className="col-span-1 text-2xl max-md:px-8 ">
+          Specified or approved by all the major hospitality brands, you can
+          trust BuildEZto deliver quality shower walls, pans, and doors to your
+          next project. Take a look at some of our recent hospitality and
+          multifamily projects.
+        </div>
+      </div>
+
       {/* <section
         className="relative w-full h-screen bg-cover bg-center text-white"
         style={{ backgroundImage: "url(" + "/banner.png" + ")" }}
@@ -355,17 +368,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 relative h-[400px] w-full overflow-hidden p-5 animie-section mt-16 max-w-7xl mx-auto place-items-center gap-8">
-        <div className="col-span-1">
-          <img src="./partner.jpeg" />
-        </div>
-        <div className="col-span-1 text-2xl">
-          Specified or approved by all the major hospitality brands, you can
-          trust BuildEZto deliver quality shower walls, pans, and doors to your
-          next project. Take a look at some of our recent hospitality and
-          multifamily projects.
-        </div>
-      </div>
+    
       {/* <Footer /> */}
     </div>
   );
