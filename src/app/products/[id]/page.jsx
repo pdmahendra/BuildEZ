@@ -54,7 +54,7 @@ const page = () => {
   }, []);
 
   return (
-    <div className={`${alata.className} pb-[50px]`}>
+    <div className={`${alata.className} pb-[50px] pt-[50px]`}>
       {loading ? (
         <div className="max-w-[90%] mx-auto items-center mt-8">
           {" "}
@@ -67,7 +67,7 @@ const page = () => {
               <img
                 src={selectedImage}
                 alt="product image"
-                className="object-cover w-[600px] h-[707px] rounded-lg"
+                className="object-contain w-[600px] h-full rounded-lg"
                 loading="lazy" 
               />
             </div>

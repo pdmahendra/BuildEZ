@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import getAllCategories from "../services/getAllCategoriesApi";
+import SkeletonComponent from "../ui/Skeleton";
 
 import { Alata } from "next/font/google";
 
@@ -11,17 +13,41 @@ const alata = Alata({
 });
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [categoriesLoading, setCategoriesLoading] = useState(true);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+
+  // Get categories
+  const getCategories = async () => {
+    const response = await getAllCategories();
+    setCategories(response.category);
+    setCategoriesLoading(false);
+  };
+
+  useEffect(() => {
+    getCategories();
+  }, []);
 
   return (
     <div>
       <header
         className={`${alata.className} bg-white shadow-md fixed w-full top-0 z-50`}
       >
+        <div className="w-full fixeed top-0 flex justify-center items-center bg-orange-200 gap-8 ">
+          <p>Reach out to us</p>
+          <Link href="/contact" className="border-2 bg-gray-200 p-2">Request a quote</Link>
+        </div>
         <div className="flex items-center justify-between w-full mx-auto py-4 px-4 md:pr-10">
           {/* Logo */}
           <Link href="/">
             <div className="text-2xl font-bold text-orange-500">
-              <img src={"/logo.png"} alt="Logo" className="w-[99px] h-[56px]" loading="lazy" />
+              <img
+                src={"/logo.png"}
+                alt="Logo"
+                className="w-[99px] h-[56px]"
+                loading="lazy"
+              />
             </div>
           </Link>
 
@@ -38,18 +64,49 @@ const Navbar = () => {
             <Link href="/" className="text-gray-700 hover:text-orange-500">
               Home
             </Link>
-            <Link
-              href="/products"
-              className="text-gray-700 hover:text-orange-500"
+            <div
+              className="relative"
+              onMouseEnter={() => setIsOpen(true)}
+              onMouseLeave={() => setIsOpen(false)}
             >
-              Products
-            </Link>
-            <Link
-              href="/product-categories"
-              className="text-gray-700 hover:text-orange-500"
-            >
-              Product Categories
-            </Link>
+              {/* Main Tab */}
+              <Link
+                href="/products"
+                className="text-gray-700 hover:text-orange-500 px-4 py-2"
+              >
+                Products
+              </Link>
+              {isOpen && (
+                <div className="absolute top-full left-0 bg-white shadow-lg rounded-md border mt-2 z-50">
+                  {categoriesLoading ? (
+                    <div className="place-items-center p-2">
+                      <SkeletonComponent />
+                      <SkeletonComponent />
+                    </div>
+                  ) : (
+                    <ul className="flex flex-col p-2">
+                      {categories.map((category) => (
+                        <li key={category._id}>
+                          <Link
+                            href={`/product-categories/${category._id}`}
+                            className="block px-4 py-2 text-gray-700 hover:text-orange-500"
+                          >
+                            {category.category}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* <Link
+                href="/product-categories"
+                className="text-gray-700 hover:text-orange-500"
+              >
+                Product Categories
+              </Link> */}
             {/* <Link
               href="/services"
               className="text-gray-700 hover:text-orange-500"
@@ -91,27 +148,81 @@ const Navbar = () => {
               >
                 Home
               </Link>
-              <Link
-                href="/products"
-                className="text-gray-700 hover:text-orange-500"
-                onClick={() => setMenuOpen(false)}
-              >
-                Products
-              </Link>
-              <Link
-                href="/product-categories"
-                className="text-gray-700 hover:text-orange-500"
-                onClick={() => setMenuOpen(false)}
-              >
-                Product Categories
-              </Link>
-              {/* <Link
-                href="/services"
-                className="text-gray-700 hover:text-orange-500"
-                onClick={() => setMenuOpen(false)}
-              >
-                Services
-              </Link> */}
+              <div className="w-full relative">
+                <div className="w-full flex items-center justify-center px-4 py-2 text-gray-700 hover:text-orange-500">
+                  {/* Centered Products Tab */}
+                  <Link href="/products" className="pl-4 flex-grow text-center">
+                    Products
+                  </Link>
+
+                  {/* Arrow Icon */}
+                  <span
+                    className="text-gray-700 cursor-pointer"
+                    onClick={(e) => {
+                      e.stopPropagation(); // Prevent navigation when arrow is clicked
+                      setMobileDropdownOpen(!mobileDropdownOpen);
+                    }}
+                  >
+                    {mobileDropdownOpen ? (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 15l6-6 6 6"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="w-5 h-5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M18 9l-6 6-6-6"
+                        />
+                      </svg>
+                    )}
+                  </span>
+                </div>
+
+                {/* Dropdown Content */}
+                {mobileDropdownOpen && (
+                  <div className="bg-white rounded-md">
+                    {categoriesLoading ? (
+                      <div className="place-items-center p-2">
+                        <SkeletonComponent />
+                        <SkeletonComponent />
+                      </div>
+                    ) : (
+                      <ul className="flex flex-col p-2 text-center">
+                        {categories.map((category) => (
+                          <li key={category._id}>
+                            <Link
+                              href={`/product-categories/${category._id}`}
+                              className="block px-4 py-2 text-gray-700 hover:text-orange-500"
+                              onClick={() => setMenuOpen(false)}
+                            >
+                              {category.category}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )}
+              </div>
               <Link
                 href="/contact"
                 className="text-gray-700 hover:text-orange-500"

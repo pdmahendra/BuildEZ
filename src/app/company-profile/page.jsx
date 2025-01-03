@@ -7,6 +7,33 @@ const alata = Alata({
   weight: "400",
 });
 
+const data = [
+  {
+    name: "Jaspal Singh",
+    designation: "CEO",
+  },
+  {
+    name: "Malkit Singh",
+    designation: "H. Director",
+  },
+  {
+    name: "Savit Sidhu",
+    designation: "S. Director",
+  },
+  {
+    name: "Jasbir Kaur",
+    designation: "Director Finance",
+  },
+  {
+    name: "Hasmanpreet Singh Malhotra",
+    designation: "Sales Manager",
+  },
+  {
+    name: "Sukhvir Kaur",
+    designation: "Account Manager",
+  },
+];
+
 const page = () => {
   return (
     <div className={`${alata.className} pb-[50px]`}>
@@ -43,7 +70,12 @@ const page = () => {
           </div>
         </div>
         <div className="">
-          <img src="/companyProfileImg2.jpg" alt="image" className="w-full h-full" loading="lazy" />
+          <img
+            src="/companyProfileImg2.jpg"
+            alt="image"
+            className="w-full h-full"
+            loading="lazy"
+          />
         </div>
       </div>
       <div className="mt-12 max-w-3xl mx-auto">
@@ -56,10 +88,9 @@ const page = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-y-9 mt-12">
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
+          {data.map((d) => (
+            <ProfileCard name={d.name} designation={d.designation}/>
+          ))}
         </div>
       </div>
     </div>

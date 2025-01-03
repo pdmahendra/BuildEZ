@@ -39,9 +39,10 @@ export default function RootLayout({ children }) {
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
         >
+         
           <Navbar className="fixed top-0 left-0 w-full z-10" />
           <Toaster position="top-center" />
-          <main className="flex-1 pt-[84px] bg-white">{children}</main>
+          <main className="flex-1 pt-[96px] bg-white">{children}</main>
           <Footer className="fixed bottom-0 left-0 w-full z-10" />
         </body>
       </html>

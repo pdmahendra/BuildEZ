@@ -17,11 +17,11 @@ const Footer = () => {
           <div className="py-6 px-5 border-r">
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm hover:text-white">
+                <a href="/" className="text-sm hover:text-white">
                   Home
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="text-sm hover:text-white">
                   About
                 </a>
@@ -35,42 +35,42 @@ const Footer = () => {
                 <a href="#" className="text-sm hover:text-white">
                   Contact
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           {/* Second Column */}
           <div className="py-6 px-5 border-r">
-            <h3 className="text-sm mb-4">Corporate Profile</h3>
+            {/* <h3 className="text-sm mb-4">Company Profile</h3> */}
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm hover:text-white">
-                  About Build22
+                <a href="/company-profile" className="text-sm hover:text-white">
+                  Company Profile
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="text-sm hover:text-white">
-                  Benefits
+                  About Build22{" "}
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a href="#" className="text-sm hover:text-white">
                   Featured
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           {/* Third Column */}
           <div className="py-6 px-5 border-r">
-            <h3 className="text-sm mb-4">Products</h3>
+            {/* <h3 className="text-sm mb-4">Products</h3> */}
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm hover:text-white">
-                  Tools
+                <a href="/products" className="text-sm hover:text-white">
+                  Products
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="text-sm hover:text-white">
                   Quality Control
                 </a>
@@ -79,20 +79,20 @@ const Footer = () => {
                 <a href="#" className="text-sm hover:text-white">
                   Blog
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           {/* Fourth Column */}
           <div className="py-6 px-5 ">
-            <h3 className="text-sm mb-4">Contact</h3>
+            {/* <h3 className="text-sm mb-4">Contact</h3> */}
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm hover:text-white">
-                  Contact Sheet
+                <a href="/contact" className="text-sm hover:text-white">
+                  Contact{" "}
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="#" className="text-sm hover:text-white">
                   Privacy Policy
                 </a>
@@ -101,7 +101,7 @@ const Footer = () => {
                 <a href="#" className="text-sm hover:text-white">
                   Refund Policy
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

@@ -5,6 +5,11 @@ import ImageSlider from "../components/ImageSlider";
 import getAllProducts from "../services/getAllProductsApi";
 import Link from "next/link";
 import ProductCard from "../components/product/ProductCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import "./styles.css";
 import { Alata } from "next/font/google";
 const alata = Alata({
   subsets: ["latin"],
@@ -29,7 +34,77 @@ export default function HomePage() {
       {/* Header */}
       {/* <Navbar /> */}
       {/* Hero Section */}
-      <section
+      <div className="h-[600px]">
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+          <SwiperSlide>
+            {" "}
+            <section
+              className="relative w-full h-screen bg-cover bg-center text-white"
+              style={{ backgroundImage: "url(" + "/banner.png" + ")" }}
+            >
+              <div className="absolute inset-0 bg-black opacity-20"></div>
+              <div className="relative flex flex-col items-center justify-center h-full z-10 space-y-12">
+                <h1 className="text-4xl md:text-5xl mb-4 text-center">
+                  Seamless Material
+                  <br />
+                  with Components
+                </h1>
+                <Link
+                  href={"/contact"}
+                  className="px-12 py-3 bg-white text-[#323334] text-xl font-medium  tracking-widest rounded-lg"
+                >
+                  Contact us
+                </Link>
+              </div>
+            </section>
+          </SwiperSlide>
+          <SwiperSlide>
+            {" "}
+            <section
+              className="relative w-full h-screen bg-cover bg-center text-white"
+              style={{ backgroundImage: "url(" + "https://static.vecteezy.com/system/resources/thumbnails/049/931/117/small/modern-keys-in-sharp-focus-with-a-beautifully-blurred-interior-background-photo.jpeg" + ")" }}
+            >
+              <div className="absolute inset-0 bg-black opacity-20"></div>
+              <div className="relative flex flex-col items-center justify-center h-full z-10 space-y-12">
+                <h1 className="text-4xl md:text-5xl mb-4 text-center">
+                  Know more
+                  <br />
+                  about us
+                </h1>
+                <Link
+                  href={"/company-profile"}
+                  className="px-12 py-3 bg-white text-[#323334] text-xl font-medium  tracking-widest rounded-lg"
+                >
+                  About us
+                </Link>
+              </div>
+            </section>
+          </SwiperSlide>
+          <SwiperSlide>
+            {" "}
+            <section
+              className="relative w-full h-screen bg-cover bg-center text-white"
+              style={{ backgroundImage: "url(" + "https://static.wixstatic.com/media/ebff0f_b92785833d3d46d6a668cf8064dceff7~mv2.jpg/v1/fill/w_528,h_284,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Safes%20Vaults%20Calgary%20Lock%20and%20Safe.jpg" + ")" }}
+            >
+              <div className="absolute inset-0 bg-black opacity-20"></div>
+              <div className="relative flex flex-col items-center justify-center h-full z-10 space-y-12">
+                <h1 className="text-4xl md:text-5xl mb-4 text-center">
+                  Explore various Products
+                  <br />
+                  and Categories
+                </h1>
+                <Link
+                  href={"/products"}
+                  className="px-12 py-3 bg-white text-[#323334] text-xl font-medium  tracking-widest rounded-lg"
+                >
+                  Explore
+                </Link>
+              </div>
+            </section>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+      {/* <section
         className="relative w-full h-screen bg-cover bg-center text-white"
         style={{ backgroundImage: "url(" + "/banner.png" + ")" }}
       >
@@ -47,7 +122,7 @@ export default function HomePage() {
             Contact us
           </Link>
         </div>
-      </section>
+      </section> */}
 
       {/* creating perfect section  */}
       <div className="mt-3 animie-section">
@@ -137,7 +212,12 @@ export default function HomePage() {
           </div>
         </div>
         <div className="">
-          <img src="/companyProfileImg2.jpg" alt="image" className="w-full h-full" loading="lazy" />
+          <img
+            src="/companyProfileImg2.jpg"
+            alt="image"
+            className="w-full h-full"
+            loading="lazy"
+          />
         </div>
       </div>
 
@@ -146,7 +226,7 @@ export default function HomePage() {
           src={"/details.png"}
           alt="Construction site"
           className="w-full h-full object-cover rounded-md shadow-lg"
-          loading="lazy" 
+          loading="lazy"
         />
       </div>
 
@@ -155,7 +235,7 @@ export default function HomePage() {
           src={"/helmet-bg.png"}
           alt="City construction scene"
           className="w-full h-full object-cover"
-          loading="lazy" 
+          loading="lazy"
         />
 
         <div className="absolute inset-0 flex items-center justify-center">
@@ -163,7 +243,7 @@ export default function HomePage() {
             src={"/helmet.png"}
             alt="Hard hat"
             className="w-3/4 sm:w-1/2 md:w-1/3 lg:w-1/4 object-contain shadow-lg rounded-md"
-            loading="lazy" 
+            loading="lazy"
           />
         </div>
       </div>
@@ -220,7 +300,7 @@ export default function HomePage() {
                 src={"/article.png"}
                 alt="Modern interior design"
                 className="w-full h-full object-cover"
-                loading="lazy" 
+                loading="lazy"
               />
             </div>
           </div>
@@ -244,7 +324,7 @@ export default function HomePage() {
             src={"/high-end.png"}
             alt="City skyline with modern buildings"
             className="w-full h-full object-cover"
-            loading="lazy" 
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-black/30"></div>
         </div>
@@ -272,6 +352,18 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 relative h-[400px] w-full overflow-hidden p-5 animie-section mt-16 max-w-7xl mx-auto place-items-center gap-8">
+        <div className="col-span-1">
+          <img src="./partner.jpeg" />
+        </div>
+        <div className="col-span-1 text-2xl">
+          Specified or approved by all the major hospitality brands, you can
+          trust BuildEZto deliver quality shower walls, pans, and doors to your
+          next project. Take a look at some of our recent hospitality and
+          multifamily projects.
         </div>
       </div>
       {/* <Footer /> */}
