@@ -36,7 +36,9 @@ export default function RootLayout({ children }) {
   return (
     <UserProvider>
       <html lang="en">
-        <head></head>
+        <head>
+          <link rel="icon" href="../../public/favicon.ico" sizes="any" />
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen text-[#000000]`}
         >
