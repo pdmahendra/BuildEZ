@@ -124,7 +124,9 @@ const EditProduct = () => {
   const handleRemoveField = (index) => {
     setExtraFields((prev) => prev.filter((_, i) => i !== index));
   };
-
+  const handleRemoveImage = (index) => {
+    setImages((prev) => prev.filter((_, i) => i !== index));
+  };
   return (
     <Layout>
       <div className={`flex min-h-screen`}>
@@ -194,13 +196,22 @@ const EditProduct = () => {
                 <div className="mb-4">
                   <div className="flex gap-4 mt-2">
                     {images.map((image, index) => (
-                      <img
-                        key={index}
-                        src={image}
-                        alt={`Uploaded ${index}`}
-                        className="w-16 h-16 object-cover rounded border"
-                        loading="lazy"
-                      />
+                      <>
+                        <img
+                          key={index}
+                          src={image}
+                          alt={`Uploaded ${index}`}
+                          className="w-16 h-16 object-cover rounded border"
+                          loading="lazy"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => handleRemoveImage(index)}
+                          className="p-2 bg-red-500 text-white rounded hover:bg-red-600"
+                        >
+                          Remove
+                        </button>
+                      </>
                     ))}
                   </div>
                 </div>
