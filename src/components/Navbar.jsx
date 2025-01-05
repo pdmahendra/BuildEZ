@@ -86,8 +86,8 @@ const Navbar = () => {
                       <SkeletonComponent />
                     </div>
                   ) : (
-                    <ul className="flex flex-col p-2">
-                      {categories.map((category) => (
+                    <ul className="flex flex-col p-4">
+                      {categories.slice(0, 4).map((category) => (
                         <li key={category._id}>
                           <Link
                             href={`/product-categories/${category._id}`}
@@ -209,7 +209,7 @@ const Navbar = () => {
                       </div>
                     ) : (
                       <ul className="flex flex-col p-2 text-center">
-                        {categories.map((category) => (
+                        {categories.slice(0, 5).map((category) => (
                           <li key={category._id}>
                             <Link
                               href={`/product-categories/${category._id}`}

@@ -8,7 +8,7 @@ import ProductCard from "../components/product/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "./styles.css";
 import { Alata } from "next/font/google";
 const alata = Alata({
@@ -34,8 +34,14 @@ export default function HomePage() {
       {/* Header */}
       {/* <Navbar /> */}
       {/* Hero Section */}
-      <div className="h-[600px]">
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+      <div className="h-[88vh]">
+        <Swiper
+          navigation={true}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          modules={[Navigation, Autoplay, Pagination]}
+          className="mySwiper"
+        >
           <SwiperSlide>
             {" "}
             <section
@@ -62,7 +68,12 @@ export default function HomePage() {
             {" "}
             <section
               className="relative w-full h-screen bg-cover bg-center text-white"
-              style={{ backgroundImage: "url(" + "https://static.vecteezy.com/system/resources/thumbnails/049/931/117/small/modern-keys-in-sharp-focus-with-a-beautifully-blurred-interior-background-photo.jpeg" + ")" }}
+              style={{
+                backgroundImage:
+                  "url(" +
+                  "https://static.vecteezy.com/system/resources/thumbnails/049/931/117/small/modern-keys-in-sharp-focus-with-a-beautifully-blurred-interior-background-photo.jpeg" +
+                  ")",
+              }}
             >
               <div className="absolute inset-0 bg-black opacity-20"></div>
               <div className="relative flex flex-col items-center justify-center h-full z-10 space-y-12">
@@ -84,7 +95,12 @@ export default function HomePage() {
             {" "}
             <section
               className="relative w-full h-screen bg-cover bg-center text-white"
-              style={{ backgroundImage: "url(" + "https://static.wixstatic.com/media/ebff0f_b92785833d3d46d6a668cf8064dceff7~mv2.jpg/v1/fill/w_528,h_284,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Safes%20Vaults%20Calgary%20Lock%20and%20Safe.jpg" + ")" }}
+              style={{
+                backgroundImage:
+                  "url(" +
+                  "https://static.wixstatic.com/media/ebff0f_b92785833d3d46d6a668cf8064dceff7~mv2.jpg/v1/fill/w_528,h_284,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Safes%20Vaults%20Calgary%20Lock%20and%20Safe.jpg" +
+                  ")",
+              }}
             >
               <div className="absolute inset-0 bg-black opacity-20"></div>
               <div className="relative flex flex-col items-center justify-center h-full z-10 space-y-12">
@@ -368,7 +384,6 @@ export default function HomePage() {
         </div>
       </div>
 
-    
       {/* <Footer /> */}
     </div>
   );

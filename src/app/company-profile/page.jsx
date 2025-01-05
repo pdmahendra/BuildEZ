@@ -36,11 +36,14 @@ const data = [
 
 const page = () => {
   return (
-    <div className={`${alata.className} pb-[50px]`}>
+    <div className={`${alata.className} pb-[50px] relative`}>
       <div
-        className="bg-cover bg-center h-[500px] md:h-[800px]"
+        className="bg-cover bg-center h-[500px] md:h-[88vh] text-center items-center flex justify-center"
         style={{ backgroundImage: "url('/companyProfileImg1.jpg')" }}
-      ></div>
+      >
+        <div className="w-full md:h-[88vh] h-[500px] bg-black absolute bg-opacity-50"></div>
+        <h1 className="md:text-8xl text-5xl text-white z-50">About Us</h1>
+      </div>
       <div className="md:grid md:grid-cols-2">
         <div className="bg-[#384353] text-[#FFFFFF] flex flex-col justify-center items-center p-8">
           <div className="max-w-lg space-y-12">
