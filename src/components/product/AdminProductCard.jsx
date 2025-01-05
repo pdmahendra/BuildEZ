@@ -9,7 +9,7 @@ const AdminProductCard = ({ alata, image, name, id, refetch }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(`/products/${id}`);
+    router.push(`/dashboard/products/${id}`);
   };
 
   const handleDelete = async () => {
@@ -32,7 +32,7 @@ const AdminProductCard = ({ alata, image, name, id, refetch }) => {
         alt="Product Image"
         className="w-full h-[355px] object-cover rounded-lg"
         onClick={handleClick}
-        loading="lazy" 
+        loading="lazy"
       />
       <div
         className={`${alata.className} text-center text-[#323334] text-xs tracking-widest pt-2 flex justify-center gap-4`}
