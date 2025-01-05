@@ -7,6 +7,7 @@ import getAllProducts from "../../../services/getAllProductsApi";
 import { useParams } from "next/navigation";
 import SkeletonComponent from "../../../ui/Skeleton";
 import { Alata } from "next/font/google";
+import HTMLReactParser from "html-react-parser";
 
 const alata = Alata({
   subsets: ["latin"],
@@ -28,7 +29,7 @@ const page = () => {
   const [productsLoading, setProductsLoading] = useState(true);
   const [product, setProduct] = useState();
   const [loading, setLoading] = useState(true);
-  const [selectedImage, setSelectedImage] = useState(""); 
+  const [selectedImage, setSelectedImage] = useState("");
 
   // Get products
   const getProduct = async () => {
@@ -68,11 +69,11 @@ const page = () => {
                 src={selectedImage}
                 alt="product image"
                 className="object-contain w-[600px] h-full rounded-lg"
-                loading="lazy" 
+                loading="lazy"
               />
             </div>
             <div className="sm:mr-24">
-            <ProductImageSlider
+              <ProductImageSlider
                 images={product?.images}
                 onImageSelect={setSelectedImage}
               />
@@ -83,7 +84,7 @@ const page = () => {
             <div className="space-y-5 max-w-full">
               <h4 className="text-2xl text-[#344054]">Product Description</h4>
               <p className="text-[#667085] text-base break-words">
-                {product?.productDescription}
+                <div>{HTMLReactParser(product?.productDescription)}</div>
               </p>
             </div>
             {/* <div className="space-y-5">
@@ -128,15 +129,15 @@ const page = () => {
                 It is a long established fact that a reader will be distracted
                 by the readable content
               </p> */}
-                {product?.productDetails}
+                <div>{HTMLReactParser(product?.productDetails)}</div>
               </div>
             </div>{" "}
             {product?.extraFields.length > 0 &&
               product.extraFields.map((p, index) => (
                 <div key={index} className="space-y-5 max-w-full">
                   <div className="text-2xl text-[#344054]">{p?.heading}</div>
-                  <div className="text-[#667085] space-y-4 break-words">
-                    {p?.value}
+                  <div className="text-[#000000]">
+                    {HTMLReactParser(p?.value)}
                   </div>
                 </div>
               ))}

@@ -34,9 +34,11 @@ const Navbar = () => {
       <header
         className={`${alata.className} bg-white shadow-md fixed w-full top-0 z-50`}
       >
-        <div className="w-full fixeed top-0 flex justify-center items-center bg-orange-200 gap-8 ">
+        <div className="w-full top-0 flex justify-center items-center bg-orange-200 gap-8 ">
           <p>Reach out to us</p>
-          <Link href="/contact" className="border-2 bg-gray-200 p-2">Request a quote</Link>
+          <Link href="/contact" className="border-2 bg-gray-200 p-2">
+            Request a quote
+          </Link>
         </div>
         <div className="flex items-center justify-between w-full mx-auto py-4 px-4 md:pr-10">
           {/* Logo */}

@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Layout from "../../../newLayout";
 import uploadImage from "../../../../services/uploadImage";
+import JoditEditor from "jodit-react";
 
 const AddProduct = () => {
   const router = useRouter();
@@ -20,7 +21,9 @@ const AddProduct = () => {
   const [categories, setCategories] = useState([]);
   const [imageUploadLoading, setImageUploadLoading] = useState(false);
   const [extraFields, setExtraFields] = useState([]);
-
+  const editor = useRef(null);
+  console.log(productDescription);
+  const [content, setContent] = useState("");
   // Get categories
   const getCategories = async () => {
     const response = await getAllCategories();
@@ -105,10 +108,15 @@ const AddProduct = () => {
     <Layout>
       <div className={`flex min-h-screen`}>
         <div className="flex-1">
-          <div className="p-6">
+          <div className="p-6 text-[#000000]">
             <h2 className="text-2xl font-bold mb-4 text-[#000000]">
               Add Product
             </h2>
+            {/* <JoditEditor
+              ref={editor}
+              value={content}
+              onChange={(newContent) => setContent(newContent)}
+            /> */}
             <form onSubmit={handleProductSubmit} className="mb-6">
               <input
                 type="text"
@@ -124,16 +132,20 @@ const AddProduct = () => {
                 onChange={(e) => setPrice(e.target.value)}
                 className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]"
               />
-              <textarea
+              <h4>Product Description</h4>
+              <JoditEditor
+                ref={editor}
                 placeholder="Product Description"
                 value={productDescription}
-                onChange={(e) => setProductDescription(e.target.value)}
+                onChange={(e) => setProductDescription(e)}
                 className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]"
               />
-              <textarea
+              <h4>Product Details</h4>
+              <JoditEditor
+                ref={editor}
                 placeholder="Product Details"
                 value={productDetails}
-                onChange={(e) => setProductDetails(e.target.value)}
+                onChange={(e) => setProductDetails(e)}
                 className="w-full p-2 border border-gray-300 rounded mb-4 text-[#323334]"
               />
               <select
@@ -166,7 +178,7 @@ const AddProduct = () => {
                         src={image}
                         alt={`Uploaded ${index}`}
                         className="w-16 h-16 object-cover rounded border"
-                        loading="lazy" 
+                        loading="lazy"
                       />
                     ))}
                   </div>
@@ -174,7 +186,14 @@ const AddProduct = () => {
               )}
 
               {extraFields.map((field, index) => (
-                <div key={index} className="md:flex max-md:space-y-4 gap-4 mb-4 items-center">
+                <div
+                  key={index}
+                  className="flex flex-col max-md:space-y-4 gap-4 mb-4 items-center w-full"
+                >
+                  <div className="w-full">
+                    {" "}
+                    <h2>New Field Heading</h2>
+                  </div>
                   <input
                     type="text"
                     placeholder="Field Heading"
@@ -182,15 +201,16 @@ const AddProduct = () => {
                     onChange={(e) =>
                       handleExtraFieldChange(index, "heading", e.target.value)
                     }
-                    className="flex-1 p-2 border border-gray-300 rounded max-md:w-full"
+                    className="flex-1 p-2 border border-gray-300 rounded max-md:w-full w-full"
                   />
-                  <input
-                    type="text"
+                  <div className="w-full">
+                    <h2>New Field Description</h2>
+                  </div>
+                  <JoditEditor
+                    ref={editor}
                     placeholder="Field Value"
                     value={field.value}
-                    onChange={(e) =>
-                      handleExtraFieldChange(index, "value", e.target.value)
-                    }
+                    onChange={(e) => handleExtraFieldChange(index, "value", e)}
                     className="flex-1 p-2 border border-gray-300 rounded max-md:w-full"
                   />{" "}
                   <button
@@ -202,8 +222,6 @@ const AddProduct = () => {
                   </button>
                 </div>
               ))}
-
-  
 
               <button
                 type="button"
