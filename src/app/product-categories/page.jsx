@@ -42,13 +42,9 @@ const page = () => {
   }, []);
   return (
     <div className="pb-[50px]">
-      <div
-        className="bg-cover bg-center h-[500px] md:h-[800px]"
-        style={{ backgroundImage: "url('/productCat1.jpg')" }}
-      ></div>
-      <div className="mt-16 mb-8">
+      <div className="mt-8 mb-8">
         <div
-          className={`${alata.className} text-2xl text-center mb-6 py-6 text-[#23262F]`}
+          className={`${alata.className} text-2xl text-center mb-6 py-4 text-[#23262F]`}
         >
           Product Categories
         </div>
@@ -90,15 +86,17 @@ const page = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 place-items-center">
             {products &&
-              products?.map((p) => (
-                <ProductCard
-                  alata={alata}
-                  key={p._id}
-                  id={p._id}
-                  image={p.images[0]}
-                  name={p.productName}
-                />
-              ))}
+              products
+                ?.slice(0, 4)
+                .map((p) => (
+                  <ProductCard
+                    alata={alata}
+                    key={p._id}
+                    id={p._id}
+                    image={p.images[0]}
+                    name={p.productName}
+                  />
+                ))}
           </div>
         )}
       </div>

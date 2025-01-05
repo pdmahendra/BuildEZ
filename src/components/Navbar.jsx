@@ -73,7 +73,7 @@ const Navbar = () => {
             >
               {/* Main Tab */}
               <Link
-                href="/products"
+                href="/product-categories"
                 className="text-gray-700 hover:text-orange-500 px-4 py-2"
               >
                 Products
@@ -153,7 +153,10 @@ const Navbar = () => {
               <div className="w-full relative">
                 <div className="w-full flex items-center justify-center px-4 py-2 text-gray-700 hover:text-orange-500">
                   {/* Centered Products Tab */}
-                  <Link href="/products" className="pl-4 flex-grow text-center">
+                  <Link
+                    href="/product-categories"
+                    className="pl-4 flex-grow text-center"
+                  >
                     Products
                   </Link>
 

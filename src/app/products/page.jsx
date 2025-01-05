@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "../../components/product/ProductCard";
 import { ChevronRight } from "lucide-react";
 import getAllProducts from "../../services/getAllProductsApi";
-import SkeletonComponent from "../../ui/Skeleton"
+import SkeletonComponent from "../../ui/Skeleton";
 import { Alata } from "next/font/google";
 
 const alata = Alata({
@@ -30,7 +30,7 @@ const Page = () => {
   return (
     <div className={`${alata.className}  pb-[50px]`}>
       {/* <div className="grid grid-cols-1 md:grid-cols-3"> */}
-        {/* <div className="relative col-span-2 w-full h-full hidden md:block">
+      {/* <div className="relative col-span-2 w-full h-full hidden md:block">
           <img
             src="/productImg1.jpg"
             alt="Product Image 1"
@@ -57,7 +57,7 @@ const Page = () => {
           </div>
         </div> */}
 
-        {/* <div className="relative col-span-1 w-full h-full hidden md:block">
+      {/* <div className="relative col-span-1 w-full h-full hidden md:block">
           <img
             src="/productImg2.jpg"
             alt="Product Image 2"
@@ -101,15 +101,17 @@ const Page = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 place-items-center">
             {products &&
-              products?.map((p) => (
-                <ProductCard
-                  alata={alata}
-                  key={p._id}
-                  id={p._id}
-                  image={p.images[0]}
-                  name={p.productName}
-                />
-              ))}
+              products
+                ?.slice(0, 4)
+                .map((p) => (
+                  <ProductCard
+                    alata={alata}
+                    key={p._id}
+                    id={p._id}
+                    image={p.images[0]}
+                    name={p.productName}
+                  />
+                ))}
           </div>
         )}
       </div>
@@ -150,7 +152,7 @@ const Page = () => {
                 src={"/article.png"}
                 alt="Modern interior design"
                 className="w-full h-full object-cover"
-                loading="lazy" 
+                loading="lazy"
               />
             </div>
           </div>
