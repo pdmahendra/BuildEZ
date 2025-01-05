@@ -19,14 +19,14 @@ const geistMono = localFont({
 export const metadata = {
   title: "Build-EZ",
   description:
-    "Our Product App is designed to bring a seamless and enjoyable shopping experience to your fingertips.",
+    "Where building dreams becomes a breeze. Let us simplify your construction journey and bring your vision to life",
   openGraph: {
     images: [
       {
-        url: "./banner.png",
+        url: "../../public/banner.png",
         width: 1200,
         height: 630,
-        alt: "Build-EZ Product App",
+        alt: "Build-EZ",
       },
     ],
   },
