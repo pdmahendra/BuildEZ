@@ -7,8 +7,8 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Layout from "../../../newLayout";
 import uploadImage from "../../../../services/uploadImage";
-import JoditEditor from "jodit-react";
-
+import dynamic from "next/dynamic";
+const JoditEditor = dynamic(() => import("jodit-react"), { ssr: false });
 const AddProduct = () => {
   const router = useRouter();
   const imageInputRef = useRef(null);
