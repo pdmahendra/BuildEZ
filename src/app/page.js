@@ -126,10 +126,11 @@ export default function HomePage() {
           <img src="./partner.jpeg" />
         </div>
         <div className="col-span-1 text-2xl max-md:px-8 ">
-          Specified or approved by all the major hospitality brands, you can
-          trust BuildEZto deliver quality shower walls, pans, and doors to your
-          next project. Take a look at some of our recent hospitality and
-          multifamily projects.
+          “We provide material to La Quinta Inn, Springhill Suites, Towneplace
+          Suites, Residence Inn Suites, Banquet Halls, Apartment and Gas
+          Station. You can trust BuildEZ to deliver quality shower walls, pans,
+          and doors to your next project. Take a look at some of our recent
+          hospitality and multifamily projects.”
         </div>
       </div>
 
@@ -242,9 +243,9 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="">
+        <div className="h-[600px]">
           <img
-            src="/companyProfileImg2.jpg"
+            src="/Chevron Gas station.jpg"
             alt="image"
             className="w-full h-full"
             loading="lazy"
@@ -263,7 +264,7 @@ export default function HomePage() {
 
       <div className="relative h-screen animie-section">
         <img
-          src={"/helmet-bg.png"}
+          src={"/La quinta Suites.jpg"}
           alt="City construction scene"
           className="w-full h-full object-cover"
           loading="lazy"

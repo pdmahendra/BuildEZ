@@ -40,14 +40,14 @@ const Navbar = () => {
             Request a quote
           </Link>
         </div>
-        <div className="flex items-center justify-between w-full mx-auto py-4 px-4 md:pr-10">
+        <div className="flex items-center justify-between w-full mx-auto px-4 md:pr-10">
           {/* Logo */}
           <Link href="/">
             <div className="text-2xl font-bold text-orange-500">
               <img
                 src={"/logo.png"}
                 alt="Logo"
-                className="w-[99px] h-[56px]"
+                className="w-[160px] h-[90px]"
                 loading="lazy"
               />
             </div>
