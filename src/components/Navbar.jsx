@@ -47,7 +47,7 @@ const Navbar = () => {
               <img
                 src={"/logo.png"}
                 alt="Logo"
-                className="w-[160px] h-[90px]"
+                className="w-[150px] h-[85px]"
                 loading="lazy"
               />
             </div>
@@ -151,7 +151,7 @@ const Navbar = () => {
                 Home
               </Link>
               <div className="w-full relative">
-                <div className="w-full flex items-center justify-center px-4 py-2 text-gray-700 hover:text-orange-500">
+                <div className="w-full flex items-center justify-center px-4 text-gray-700 hover:text-orange-500">
                   {/* Centered Products Tab */}
                   <Link
                     href="/product-categories"
@@ -211,8 +211,8 @@ const Navbar = () => {
                         <SkeletonComponent />
                       </div>
                     ) : (
-                      <ul className="flex flex-col p-2 text-center">
-                        {categories.slice(0, 5).map((category) => (
+                      <ul className="flex flex-col text-center pt-2">
+                        {categories.map((category) => (
                           <li key={category._id}>
                             <Link
                               href={`/product-categories/${category._id}`}
