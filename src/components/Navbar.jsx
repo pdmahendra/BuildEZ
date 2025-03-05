@@ -62,7 +62,7 @@ const Navbar = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex gap-8">
+          <nav className="hidden md:flex gap-8 text-lg font-sans font-bold">
             <Link href="/" className="text-gray-700 hover:text-orange-500">
               Home
             </Link>
@@ -76,22 +76,22 @@ const Navbar = () => {
                 href="/product-categories"
                 className="text-gray-700 hover:text-orange-500 px-4 py-2"
               >
-                Products
+                Products →
               </Link>
               {isOpen && (
-                <div className="absolute top-full left-0 bg-white shadow-lg rounded-md border mt-2 z-50">
+                <div className="absolute top-full left-[-15vw] bg-white shadow-lg rounded-md border mt-2 z-50 w-[500px]">
                   {categoriesLoading ? (
                     <div className="place-items-center p-2">
                       <SkeletonComponent />
                       <SkeletonComponent />
                     </div>
                   ) : (
-                    <ul className="flex flex-col p-4">
-                      {categories.slice(0, 4).map((category) => (
+                    <ul className="flex flex-wrap p-4 gap-2">
+                      {categories.map((category) => (
                         <li key={category._id}>
                           <Link
                             href={`/product-categories/${category._id}`}
-                            className="block px-4 py-2 text-gray-700 hover:text-orange-500"
+                            className="block px-4 py-2 text-gray-700 hover:text-orange-500 bg-gray-100"
                           >
                             {category.category}
                           </Link>

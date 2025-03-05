@@ -192,26 +192,39 @@ export default function HomePage() {
       {/* creating perfect section  */}
 
       {/* Feature Products Section */}
-      <div className="mt-12 mb-8 animie-section">
+      <div className="mt-12 animie-section">
         <div
           className={`${alata.className} text-2xl text-center mb-6 border-2 py-6 text-[#323334]`}
         >
           Enjoy our feature products
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 place-items-center">
-          {products &&
-            products
-              ?.slice(0, 4)
-              .map((p) => (
-                <ProductCard
-                  alata={alata}
-                  key={p.id}
-                  id={p.id}
-                  image={p.images[0]}
-                  name={p.productName}
-                />
-              ))}
-        </div>
+
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1} // Default for mobile
+          breakpoints={{
+            640: { slidesPerView: 2 }, // For tablets
+            1024: { slidesPerView: 3 }, // For laptops
+            1280: { slidesPerView: 4 }, // For large screens
+          }}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 1000, disableOnInteraction: false }}
+          loop={true}
+          className="w-full"
+        >
+          {products?.map((p) => (
+            <SwiperSlide key={p.id} className="flex justify-center h-full">
+              <ProductCard
+                alata={alata}
+                id={p.id}
+                image={p.images[0]}
+                name={p.productName}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       {/* Delight Services Section */}

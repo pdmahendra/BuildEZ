@@ -9,19 +9,11 @@ const alata = Alata({
 
 const data = [
   {
-    name: "Jaspal Singh",
-    designation: "CEO",
-  },
-  {
-    name: "Malkit Singh",
-    designation: "H. Director",
-  },
-  {
-    name: "Savit Sidhu",
+    name: "Wajat Hussain",
     designation: "S. Director",
   },
   {
-    name: "Jasbir Kaur",
+    name: "J. Corr",
     designation: "Director Finance",
   },
   {
